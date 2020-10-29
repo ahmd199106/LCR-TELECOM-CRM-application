@@ -31,7 +31,7 @@ function createData(name, calories, fat, carbs, protein, acd, asr, date, action)
 }
 
 const rows = [
-  createData('Airtel', 'CNN', 'India', 82, 0.125, 124, 124, 82, { <SearchIcon /> <CreateIcon /> } ),
+  createData('Airtel', 'CNN', 'India', 82, 0.125, 124, 124, 82, 0.125),
   createData('Etisalat', 'CNN', 'India', 82, 0.125, 'CNN', 'India', 82, 0.125),
   createData('Pak Tele', 'CNN', 'India', 82, 0.125, 'CNN', 'India', 82, 0.125),
   createData('Telecom B', 'CNN', 'India', 82, 0.125, 'CNN', 'India', 82, 0.125),
