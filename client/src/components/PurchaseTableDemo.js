@@ -19,64 +19,34 @@ import Tooltip from '@material-ui/core/Tooltip';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
+import FilterListIcon from '@material-ui/icons/FilterList';
 import SearchIcon from '@material-ui/icons/Search';
 import CreateIcon from '@material-ui/icons/Create';
-import GetAppIcon from '@material-ui/icons/GetApp';
-import PrintIcon from '@material-ui/icons/Print';
-import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
-
 
 
 
 
 function createData(clientName, routeName, destination, destinationCode, rate, acd, asr, date, action) {
-    return { clientName, routeName, destination, destinationCode, rate, acd, asr, date, action };
-  }
+  return { clientName, routeName, destination, destinationCode, rate, acd, asr, date, action };
+}
 
 const rows = [
-    createData('Airtel', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton> ),
-    createData('Etisalat', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Pak Tele', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020' , <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Telecom B', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('CSKcom', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Honeycomb', 408, 3.2, 87, 6.5, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Jelly Bean', 375, 0.0, 94, 0.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('KitKat', 518, 26.0, 65, 7.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Lollipop', 392, 0.2, 98, 0.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Marshmallow', 318, 0, 81, 2.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Nougat', 360, 19.0, 9, 37.0, 124, 124, 82,<IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-    createData('Oreo', 437, 18.0, 63, 4.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
-  ];
+  createData('Airtel', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton> ),
+  createData('Etisalat', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Pak Tele', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020' , <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Telecom B', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('CSKcom', 'CNN', 'India', 82, 0.125, 6, '55%' , '28/10/2020', <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Honeycomb', 408, 3.2, 87, 6.5, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Jelly Bean', 375, 0.0, 94, 0.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('KitKat', 518, 26.0, 65, 7.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Lollipop', 392, 0.2, 98, 0.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Marshmallow', 318, 0, 81, 2.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Nougat', 360, 19.0, 9, 37.0, 124, 124, 82,<IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+  createData('Oreo', 437, 18.0, 63, 4.0, 124, 124, 82, <IconButton><SearchIcon /> <CreateIcon /></IconButton>),
+];
 
-
-  const StyledTableCell = withStyles((theme) => ({
-    head: {
-      //backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-      fontSize: 12,
-      lineHeight:"0.1",
-      
-    },
-    body: {
-      fontSize: 12,
-      lineHeight:"0.1",
-     
-      
-    },
-  }))(TableCell);
-  
-  const StyledTableRow = withStyles((theme) => ({
-    root: {
-      '&:nth-of-type(odd)': {
-        backgroundColor: theme.palette.action.hover,
-      },
-    },
-  }))(TableRow);
-
-
-
-  function descendingComparator(a, b, orderBy) {
+function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
   }
@@ -104,14 +74,15 @@ function stableSort(array, comparator) {
 
 const headCells = [
   { id: 'clientName', numeric: false, disablePadding: true, label: 'Client Name' },
-  { id: 'routeName', numeric: true, disablePadding: false, label: 'Route Name' },
-  { id: 'destination', numeric: true, disablePadding: false, label: 'Destination'},
-  { id: 'destinationCode', numeric: true, disablePadding: false, label: 'Destination Code' },
-  { id: 'rate', numeric: false, disablePadding: false, label: 'Rate' },
+  { id: 'routeName', numeric: false, disablePadding: true, label: 'Route Name' },
+  { id: 'destination', numeric: false, disablePadding: true, label: 'Destination' },
+  { id: 'destinationCode', numeric: false, disablePadding: true, label: 'Destination Code' },
+  { id: 'rate', numeric: false, disablePadding: true, label: 'Rate' },
   { id: 'acd', numeric: false, disablePadding: true, label: 'ACD' },
-  { id: 'asr', numeric: true, disablePadding: true, label: 'ASR' },
-  { id: 'date', numeric: true, disablePadding: true, label: 'Date' },
-  { id: 'action', numeric: true, disablePadding: true, label: 'Action' },
+  { id: 'asr', numeric: false, disablePadding: true, label: 'ASR' },
+  { id: 'date', numeric: false, disablePadding: true, label: 'Date' },
+  { id: 'action', numeric: false, disablePadding: true, label: 'Action' },
+
 ];
 
 function EnhancedTableHead(props) {
@@ -122,25 +93,24 @@ function EnhancedTableHead(props) {
 
   return (
     <TableHead>
-      <StyledTableRow>
-        <StyledTableCell padding="checkbox">
+      <TableRow>
+        <TableCell padding="checkbox">
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
             onChange={onSelectAllClick}
             inputProps={{ 'aria-label': 'select all desserts' }}
           />
-        </StyledTableCell>
+        </TableCell>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align='center'
-            //align={headCell.numeric ? 'right' : 'left'}
+            align="center"
+            // align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
-            size='small'
+            size="medium"
             style={{color:"#778899"}}
-            variant="footer"
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -156,7 +126,7 @@ function EnhancedTableHead(props) {
             </TableSortLabel>
           </TableCell>
         ))}
-      </StyledTableRow>
+      </TableRow>
     </TableHead>
   );
 }
@@ -173,7 +143,7 @@ EnhancedTableHead.propTypes = {
 
 const useToolbarStyles = makeStyles((theme) => ({
   root: {
-    paddingLeft: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
   },
   highlight:
@@ -188,7 +158,6 @@ const useToolbarStyles = makeStyles((theme) => ({
         },
   title: {
     flex: '1 1 100%',
-    paddingLeft: theme.spacing(3),
   },
 }));
 
@@ -198,8 +167,6 @@ const EnhancedTableToolbar = (props) => {
 
   return (
     <Toolbar
-    variant="dense"
-    style={{backgroundColor:'#004AA5',color: '#fff',padding:"1px",width:"1150px"}}
       className={clsx(classes.root, {
         [classes.highlight]: numSelected > 0,
       })}
@@ -223,10 +190,10 @@ const EnhancedTableToolbar = (props) => {
       ) : (
         <Tooltip title="Filter list">
           <IconButton aria-label="filter list">
-            <SearchIcon style={{margin:'8px',color: '#fff',}}/>
-            <GetAppIcon style={{margin:'8px',color: '#fff',}}/>
-            <PrintIcon style={{margin:'8px',color: '#fff',}}/>
-            <DeleteSweepIcon style={{margin:'8px',color: '#fff',}}/>
+            <FilterListIcon style={{margin:'8px'}}/>
+            <FilterListIcon style={{margin:'8px'}}/>
+            <FilterListIcon style={{margin:'8px'}}/>
+            <FilterListIcon style={{margin:'8px'}}/>
           </IconButton>
         </Tooltip>
       )}
@@ -242,16 +209,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     
+    
   },
   paper: {
-    width: '100%',
     marginBottom: theme.spacing(2),
+    
   },
   table: {
-    minWidth: 750,
-    width: '100%',
-    //height:"4px",
-    //paddingLeft: "30px",
+    minWidth: 250,
+    height:"150px"
   },
   visuallyHidden: {
     border: 0,
@@ -266,7 +232,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Purchasetable() {
+export default function EnhancedTable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -326,9 +292,25 @@ export default function Purchasetable() {
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
   const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-
-
   
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 12,
+      lineHeight:"0.1"
+    },
+  }))(TableCell);
+  
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
 
 
 
@@ -337,12 +319,12 @@ export default function Purchasetable() {
       <Paper className={classes.paper}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer 
-        style={{height:'257px'}}
+        style={{height:'293px'}}
         >
           <Table
-            className={classes.table}
+            className={classes.table} 
             aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
+            size='small'
             aria-label="enhanced table"
           >
             <EnhancedTableHead
@@ -370,15 +352,15 @@ export default function Purchasetable() {
                       tabIndex={-1}
                       key={row.name}
                       selected={isItemSelected}
-                      style={{fontSize: '5px'}}
+                      //style={{height: '15px'}}
                     >
-                      <StyledTableCell padding="checkbox">
+                      <StyledTableCell padding="checkbox" >
                         <Checkbox
                           checked={isItemSelected}
                           inputProps={{ 'aria-labelledby': labelId }}
                         />
                       </StyledTableCell>
-                      <StyledTableCell component="th" id={labelId} scope="row">
+                      <StyledTableCell component="th" id={labelId} scope="row" padding="none">
                         {row.clientName}
                       </StyledTableCell>
                       <StyledTableCell align="center">{row.routeName}</StyledTableCell>
@@ -387,7 +369,7 @@ export default function Purchasetable() {
                       <StyledTableCell align="left">{row.rate}</StyledTableCell>
                       <StyledTableCell align="left">{row.acd}</StyledTableCell>
                       <StyledTableCell align="left">{row.asr}</StyledTableCell>
-                      <StyledTableCell align="left">{row.date}</StyledTableCell>
+                      <StyledTableCell align="center">{row.date}</StyledTableCell>
                       <StyledTableCell align="left">{row.action}</StyledTableCell>
                     </StyledTableRow>
                   );
@@ -408,12 +390,12 @@ export default function Purchasetable() {
           page={page}
           onChangePage={handleChangePage}
           onChangeRowsPerPage={handleChangeRowsPerPage}
-          style={{lineHeight: '0.1', height: '40px'}}
+          style={{height:"40px"}}
         />
-       </Paper>
+      </Paper>
       <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} color="primary"/>}
-        label="Dense"
+        control={<Switch checked={dense} onChange={handleChangeDense} />}
+        label="Dense padding"
       />
     </div>
   );
