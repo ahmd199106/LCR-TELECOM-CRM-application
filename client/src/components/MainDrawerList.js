@@ -27,21 +27,22 @@ const useStyles = makeStyles((theme) => ({
         paddingLeft: '2px',
       },
       listItemNeedHelp: {
+        display: 'flex',
+        flexGrow: 1,
         position: "fixed",
         bottom: 0,
        // textAlign: "center",
         paddingBottom: 10,
         paddingTop: 10,
         paddingLeft:0,
-        //paddingRight: 50,
-        display: 'flex',
-        flexWrap: 'wrap-reverse',
-        //justifyContent: 'flex-end',
+        paddingRight: 50,
+        //flexWrap: 'wrap-reverse',
+        //justifyContent: 'space-around',
+        //flexDirection:"row-reverse",
+        //alignSelf:"flex-start",
         backgroundColor:'#004AA5',
         color: '#fff',
-        padding:"1px",
-        width:"242px"
-        
+        width:"242px",
     }
   }));
   

@@ -15,10 +15,12 @@ const drawerWidth = 242;
 
 const useStyles = makeStyles({
     drawer: {
+        display: 'flex',
         width:drawerWidth,
         flexShrink: 0,
     },
     drawerPaper: {
+        display: 'flex',
         width: drawerWidth,
         backgroundColor:'#005FAF'
       },
@@ -36,7 +38,7 @@ const useStyles = makeStyles({
 
 
 
-const MainDrawer = () => {
+const MainDrawer = (props) => {
     const classes = useStyles();
     const itemsList = [
         {
@@ -71,7 +73,7 @@ return (
     >
 <Toolbar />
         <div className={classes.drawerContainer}>
-        <MainDrawerList />
+        <MainDrawerList drawerWidth={drawerWidth} />
 
 
 

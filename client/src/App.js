@@ -38,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
   mainToolbar: {
     marginTop: theme.spacing(2),
    paddingTop:"80px",
+   paddingLeft:"0px",
+   paddingRight:"0px",
+   fontWeight:"bold",
+   width:"auto",
   },
   orange: {
     color: theme.palette.getContrastText(deepOrange[500]),
@@ -50,6 +54,10 @@ const useStyles = makeStyles((theme) => ({
 
 const BootstrapButton = withStyles({
   root: {
+    position:"absolute",
+    right: '0px',
+    // position: 'relative',
+    // left: '50px',
     marginRight:'0px',
     marginBottom: "5px",
     boxShadow: 'none',
@@ -129,7 +137,7 @@ function App() {
       <MainDrawer />
       <main className={classes.content}>
         <Toolbar className={classes.mainToolbar} >
-          <Grid container >
+          <Grid container style={{width: '100%'}}>
             <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
               <Grid item xs={3} align="left">
                 <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
