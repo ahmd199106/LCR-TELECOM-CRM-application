@@ -22,21 +22,25 @@ const useStyles = makeStyles((theme) => ({
     },
     listItemText:{
         color: '#fff',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        display: 'flex',
+        paddingLeft: '2px',
       },
       listItemNeedHelp: {
         position: "fixed",
         bottom: 0,
-        textAlign: "center",
+       // textAlign: "center",
         paddingBottom: 10,
         paddingTop: 10,
         paddingLeft:0,
-        paddingRight: 50,
+        //paddingRight: 50,
         display: 'flex',
+        flexWrap: 'wrap-reverse',
+        //justifyContent: 'flex-end',
         backgroundColor:'#004AA5',
         color: '#fff',
         padding:"1px",
-        width:"222px"
+        width:"242px"
         
     }
   }));
@@ -54,20 +58,21 @@ const useStyles = makeStyles((theme) => ({
         <div className={classes.root}>
           <List component="nav" aria-label="Navigation">
             <ListItem
-            style={{fontWeight: '800'}}
+            alignItems="center"
+            style={{backgroundColor:(selectedIndex === 0) && 'rgba(16, 156, 241, 0.44)'}}
               button
-              selected={selectedIndex === 0}
+              selected={selectedIndex}
               onClick={(event) => handleListItemClick(event, 0)}
             >
               <ListItemIcon>
-                <MoveToInboxIcon style={{color:'#FFF'}}/>
+                <MoveToInboxIcon style={{color:'#FFF',justifyContent: 'flex-end'}}/>
               </ListItemIcon>
               <ListItemText primary="Dashboard" className={classes.listItemText}/>
             </ListItem>
             <ListItem
-            style={{backgroundColor:'rgba(16, 156, 241, 0.44)'}}
+            style={{backgroundColor:(selectedIndex === 1) && 'rgba(16, 156, 241, 0.44)'}}
               button
-              selected={selectedIndex === 1}
+              selected={selectedIndex }
               onClick={(event) => handleListItemClick(event, 1)}
             >
               <ListItemIcon>
@@ -77,9 +82,10 @@ const useStyles = makeStyles((theme) => ({
             </ListItem>
           
           <ListItem
+          style={{backgroundColor:(selectedIndex === 2) && 'rgba(16, 156, 241, 0.44)'}}
               button
-              selected={selectedIndex === 0}
-              onClick={(event) => handleListItemClick(event, 0)}
+              selected={selectedIndex}
+              onClick={(event) => handleListItemClick(event, 2)}
             >
               <ListItemIcon>
                 <GroupIcon style={{color:'#FFF'}} />
@@ -87,9 +93,10 @@ const useStyles = makeStyles((theme) => ({
               <ListItemText primary="Clients" className={classes.listItemText}/>
             </ListItem>
             <ListItem
+            style={{backgroundColor:(selectedIndex === 3) && 'rgba(16, 156, 241, 0.44)'}}
               button
-              selected={selectedIndex === 0}
-              onClick={(event) => handleListItemClick(event, 0)}
+              selected={selectedIndex}
+              onClick={(event) => handleListItemClick(event, 3)}
             >
               <ListItemIcon>
                 <ImportExportIcon style={{color:'#FFF'}} />
@@ -97,9 +104,10 @@ const useStyles = makeStyles((theme) => ({
               <ListItemText primary="Route Offers" className={classes.listItemText}/>
             </ListItem>
             <ListItem
+            style={{backgroundColor:(selectedIndex === 4) && 'rgba(16, 156, 241, 0.44)'}}
               button
-              selected={selectedIndex === 0}
-              onClick={(event) => handleListItemClick(event, 0)}
+              selected={selectedIndex}
+              onClick={(event) => handleListItemClick(event, 4)}
             >
               <ListItemIcon>
                 <TrackChangesIcon style={{color:'#FFF'}} />
@@ -107,16 +115,14 @@ const useStyles = makeStyles((theme) => ({
               <ListItemText primary="Target" className={classes.listItemText}/>
             </ListItem>
 
-
-
             <ListItem
             className={classes.listItemNeedHelp}
               button
-              selected={selectedIndex === 0}
-              onClick={(event) => handleListItemClick(event, 0)}
+              selected={selectedIndex === 5}
+              onClick={(event) => handleListItemClick(event, 5)}
             >
               <ListItemIcon>
-                <HelpOutlineIcon fontSize="small" style={{color:'#FFF',marginLeft:'50px',padding:'0px'}} />
+                <HelpOutlineIcon fontSize="small" style={{color:'#FFF',marginLeft:'50px',padding:'1px'}} />
               </ListItemIcon>
               <ListItemText primary="Need Help?" className={classes.listItemText}/>
             </ListItem>

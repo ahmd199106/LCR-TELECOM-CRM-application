@@ -11,7 +11,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import MainDrawerList from './MainDrawerList';
 
 
-const drawerWidth = 222;
+const drawerWidth = 242;
 
 const useStyles = makeStyles({
     drawer: {
