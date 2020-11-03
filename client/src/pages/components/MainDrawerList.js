@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import TrackChangesIcon from '@material-ui/icons/TrackChanges';
 import GroupIcon from '@material-ui/icons/Group';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
-import purchaseIcon from "../images/purchasing1.png";
+import purchaseIcon from "../assets/images/purchasing1.png";
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Typography from '@material-ui/core/Typography';
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       maxWidth: 360,
       backgroundColor: '#005FAF', 
+  
     //   fontWeight: '900',
     //   fontSize: 12,
     },
@@ -26,24 +27,26 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         paddingLeft: '2px',
       },
-      listItemNeedHelp: {
-        display: 'flex',
-        flexGrow: 1,
-        position: "fixed",
-        bottom: 0,
-       // textAlign: "center",
-        paddingBottom: 10,
-        paddingTop: 10,
-        paddingLeft:0,
-        //paddingRight: 50,
-        //flexWrap: 'wrap-reverse',
-        //justifyContent: 'space-around',
-        //flexDirection:"row-reverse",
-        //alignSelf:"flex-start",
+       listItemNeedHelp: {
         backgroundColor:'#004AA5',
-        color: '#fff',
-        width:"242px",
-    }
+       }
+    //     display: 'flex',
+    //     flexGrow: 1,
+    //     position: "fixed",
+    //     bottom: 0,
+    //    // textAlign: "center",
+    //     paddingBottom: 10,
+    //     paddingTop: 10,
+    //     paddingLeft:0,
+    //     //paddingRight: 50,
+    //     //flexWrap: 'wrap-reverse',
+    //     //justifyContent: 'space-around',
+    //     //flexDirection:"row-reverse",
+    //     //alignSelf:"flex-start",
+    //     backgroundColor:'#004AA5',
+    //     color: '#fff',
+    //     width:"242px",
+    // }
   }));
   
   export default function MainDrawerList() {
@@ -56,8 +59,8 @@ const useStyles = makeStyles((theme) => ({
    
 
     return (
-        <div className={classes.root}>
-          <List component="nav" aria-label="Navigation">
+        <div className={classes.root} >
+          <List component="nav" aria-label="Navigation" style={{backgroundColor:'green', height:'100%'}}>
             <ListItem
             alignItems="center"
             style={{backgroundColor:(selectedIndex === 0) && 'rgba(16, 156, 241, 0.44)'}}
@@ -117,17 +120,21 @@ const useStyles = makeStyles((theme) => ({
             </ListItem>
 
             <ListItem
-            className={classes.listItemNeedHelp}
+             className={classes.listItemNeedHelp}
               button
               selected={selectedIndex === 5}
               onClick={(event) => handleListItemClick(event, 5)}
+              style={{position:'fixed', bottom:0, }}
             >
               <ListItemIcon>
-                <HelpOutlineIcon fontSize="small" style={{color:'#FFF',marginLeft:'50px',padding:'1px'}} />
+                <HelpOutlineIcon fontSize="small" style={{color:'#FFF',marginLeft:'0px',padding:'1px'}} />
               </ListItemIcon>
               <ListItemText primary="Need Help?" className={classes.listItemText}/>
             </ListItem>
-          </List>
-        </div>
+
+            </List>
+
+            
+         </div>
   );
 }

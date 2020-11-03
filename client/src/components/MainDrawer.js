@@ -18,6 +18,7 @@ const useStyles = makeStyles({
         display: 'flex',
         width:drawerWidth,
         flexShrink: 0,
+        overflow:'hidden'
     },
     drawerPaper: {
         display: 'flex',
@@ -26,6 +27,7 @@ const useStyles = makeStyles({
       },
       drawerContainer: {
         overflow: 'auto',
+      
       },
       listItemText:{
         fontSize:'0.8rem',

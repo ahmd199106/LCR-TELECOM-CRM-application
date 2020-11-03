@@ -12,10 +12,10 @@ import AddIcon from '@material-ui/icons/Add';
 import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
-import logo from "./images/LcrTelLogo1.png"
-import trendingFlat from "./images/trending_flat_24px_rounded.svg"
-import Purchasetable from "./components/Purchasetable"
-import MainDrawer from "./components/MainDrawer"
+import logo from "./pages/assets/images/LcrTelLogo1.png"
+import trendingFlat from "./pages/assets/images/trending_flat_24px_rounded.svg"
+import Purchasetable from "./pages/components/Purchasetable"
+import MainDrawer from "./pages/components/MainDrawer"
 
 
 

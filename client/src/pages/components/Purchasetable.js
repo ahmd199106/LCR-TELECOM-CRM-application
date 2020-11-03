@@ -199,7 +199,7 @@ const EnhancedTableToolbar = (props) => {
   return (
     <Toolbar
     variant="dense"
-    style={{backgroundColor:'#004AA5',color: '#fff',padding:"0px",width:"1150px"}}
+    style={{backgroundColor:'#004AA5',color: '#fff',padding:"0px",width:"100%"}}
       className={clsx(classes.root, {
         [classes.highlight]: numSelected > 0,
       })}
