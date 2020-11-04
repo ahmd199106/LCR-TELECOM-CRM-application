@@ -89,11 +89,10 @@ return (
 <Toolbar />
         <div className={classes.drawerContainer} >
      
-      
           <List component="nav" aria-label="Navigation" style={{ height:'100%'}} >
             <ListItem
             alignItems="center"
-            style={{backgroundColor:(selectedIndex === 0) && 'rgba(16, 156, 241, 0.44)'}}
+            style={{backgroundColor:(selectedIndex === 0) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF' }}
               button
               selected={selectedIndex}
               onClick={(event) => handleListItemClick(event, 0)}
@@ -104,7 +103,7 @@ return (
               <ListItemText primary="Dashboard" style={{color:'white'}}/>
             </ListItem>
             <ListItem
-            style={{backgroundColor:(selectedIndex === 1) && 'rgba(16, 156, 241, 0.44)'}}
+            style={{backgroundColor:(selectedIndex === 1) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
               selected={selectedIndex }
               onClick={(event) => handleListItemClick(event, 1)}
@@ -116,7 +115,7 @@ return (
             </ListItem>
           
           <ListItem
-          style={{backgroundColor:(selectedIndex === 2) && 'rgba(16, 156, 241, 0.44)'}}
+          style={{backgroundColor:(selectedIndex === 2) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
               selected={selectedIndex}
               onClick={(event) => handleListItemClick(event, 2)}
@@ -127,7 +126,7 @@ return (
               <ListItemText primary="Clients" style={{color:'white'}}/>
             </ListItem>
             <ListItem
-            style={{backgroundColor:(selectedIndex === 3) && 'rgba(16, 156, 241, 0.44)'}}
+            style={{backgroundColor:(selectedIndex === 3) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
               selected={selectedIndex}
               onClick={(event) => handleListItemClick(event, 3)}
@@ -138,7 +137,7 @@ return (
               <ListItemText primary="Route Offers" style={{color:'white'}}/>
             </ListItem>
             <ListItem
-            style={{backgroundColor:(selectedIndex === 4) && 'rgba(16, 156, 241, 0.44)'}}
+            style={{backgroundColor:(selectedIndex === 4) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
               selected={selectedIndex}
               onClick={(event) => handleListItemClick(event, 4)}
@@ -148,37 +147,24 @@ return (
               </ListItemIcon>
               <ListItemText primary="Target" style={{color:'white'}}/>
             </ListItem>
-<div style={{ height:'100%',  }}>
-<div style={{ position:'absolute', bottom:0, width:'100%',display: 'flex',alignItems:'center'}}>
-<ListItem
-            
-              button
-              selected={selectedIndex === 5}
-              onClick={(event) => handleListItemClick(event, 5)}
-              style={{width:'100%', backgroundColor:'#004AA5', color:'white', display:'flex', justifyContent:'center' }}
-           
-            >
-              
-              <div style={{display:'flex'}}>
-
-                <HelpOutlineIcon fontSize="small" style={{color:'white',marginTop:'5px',marginRight:'5px'}}  />
-   
-        
-                  <ListItemText primary="Need Help?" style={{color:'white'}}/>
+            <div style={{ height:'100%',  }}>
+              <div style={{ position:'absolute', bottom:0, width:'100%',display: 'flex',alignItems:'center'}}>
+                <ListItem
+                  button
+                  selected={selectedIndex === 5}
+                  onClick={(event) => handleListItemClick(event, 5)}
+                  style={{width:'100%', backgroundColor:'#004AA5', color:'white', display:'flex', justifyContent:'flex-end' }}
+                >
+                  {/* <div style={{display:'flex'}}> */}
+                  <ListItemIcon>
+                    <HelpOutlineIcon fontSize="small" style={{color:'white',marginTop:'1px',marginLeft:'30px'}}  /></ListItemIcon>
+                    <ListItemText primary="Need Help?" style={{color:'white'}}/>
+                  {/* </div>     */}
+                </ListItem>
               </div>
-               
-                  
-            </ListItem>
-</div>
- </div>
-            
-
-            </List>
-
-            
-         </div>
-
-     
+            </div>
+          </List>  
+        </div>
       </Drawer>
 
 )
