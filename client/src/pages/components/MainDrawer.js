@@ -8,7 +8,6 @@ import ImportExportIcon from '@material-ui/icons/ImportExport';
 import purchaseIcon from "../assets/images/purchasing1.png";
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import Toolbar from '@material-ui/core/Toolbar';
-import MainDrawerList from './MainDrawerList';
 
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Typography from '@material-ui/core/Typography';
@@ -21,13 +20,12 @@ const useStyles = makeStyles({
         display: 'flex',
         width:drawerWidth,
         flexShrink: 0,
-        overflow: 'hidden',
+        //overflow: 'hidden',
     },
     drawerPaper: {
         display: 'flex',
         width: drawerWidth,
         backgroundColor:'#005FAF',
-        // backgroundColor:'red'
       },
       drawerContainer: {
         overflow: 'hidden',
