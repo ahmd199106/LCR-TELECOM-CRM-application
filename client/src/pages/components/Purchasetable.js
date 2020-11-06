@@ -496,7 +496,7 @@ export default function Purchasetable() {
             />
           </Paper>
           <FormControlLabel
-            control={<Switch checked={dense} onChange={handleChangeDense} color="primary"/>}
+            control={<Switch checked={dense} style={{height: '40px',paddingTop: '5px',color:'#005FAF'}} onChange={handleChangeDense} color="primary"/>}
             label="Dense"
           />
     </div>
