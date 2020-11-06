@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
       width: '845px',
       height: '620px',
       margin: '35px auto',
+      boxShadow: '0 8px 6px -6px',
       border: '1px solid',
+      borderColor: '#D3D3D3',
       '& .MuiTextField-root': {
         marginTop: theme.spacing(6),
         width: '50ch',
@@ -40,6 +42,12 @@ const useStyles = makeStyles((theme) => ({
         marginBottom:"5px",
         marginTop:"10px",
       },
+      buttonSave : {
+        marginRight: "22px",
+        marginBottom:"5px",
+        marginTop:"10px",
+        backgroundColor:'#004AA5'
+      }
 }));
 
 
@@ -90,7 +98,8 @@ export default function Form () {
                 <Button variant="contained" color="secondary" className={classes.button} size="small">
                     Cancel
                 </Button>
-                <Button variant="contained" color="primary" size="small" className={classes.button} startIcon={<SaveIcon />}>
+                <Button variant="contained" color="primary" size="small" 
+                className={classes.buttonSave}  startIcon={<SaveIcon />}>
                     Save
                 </Button>
                 </Grid>
