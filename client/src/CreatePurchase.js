@@ -16,7 +16,6 @@ import logo from "./pages/assets/images/LcrTelLogo1.png"
 import trendingFlat from "./pages/assets/images/trending_flat_24px_rounded.svg"
 import Form from "./pages/components/Form";
 import MainDrawer from "./pages/components/MainDrawer";
-import Typography from "@material-ui/core/Typography";
 
 
 
@@ -139,7 +138,6 @@ const useStyles = makeStyles((theme) => ({
         <MainDrawer />
         <main className={classes.content}>
           <Toolbar className={classes.mainToolbar} >
-          
             <Grid container style={{width: '100%'}}>
               <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
                 <Grid item xs={3} align="left">

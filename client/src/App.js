@@ -8,16 +8,13 @@ import DehazeIcon from '@material-ui/icons/Dehaze';
 import { Grid, IconButton } from "@material-ui/core";
 import { deepOrange } from '@material-ui/core/colors';
 import Avatar from '@material-ui/core/Avatar';
-import AddIcon from '@material-ui/icons/Add';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
-import logo from "./pages/assets/images/LcrTelLogo1.png"
-import trendingFlat from "./pages/assets/images/trending_flat_24px_rounded.svg"
-import Purchasetable from "./pages/components/Purchasetable"
-import MainDrawer from "./pages/components/MainDrawer"
-
-
+import logo from "./pages/assets/images/LcrTelLogo1.png";
+import Purchasetable from "./pages/components/Purchasetable";
+import MainDrawer from "./pages/components/MainDrawer";
+import Error from "./pages/components/Error";
+import Form from "./pages/components/Form";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,50 +49,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-const BootstrapButton = withStyles({
-  root: {
-    position:"absolute",
-    right: '0px',
-    // position: 'relative',
-    // left: '50px',
-    marginRight:'0px',
-    marginBottom: "5px",
-    boxShadow: 'none',
-    textTransform: 'none',
-    fontSize: 12,
-    padding: '6px 15px',
-    border: '1px solid',
-    lineHeight: 1.2,
-    backgroundColor: '#005FAF',
-    fontWeight:"700",
-    borderColor: '#0063cc',
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:hover': {
-      backgroundColor: '#0069d9',
-      borderColor: '#0062cc',
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#0062cc',
-      borderColor: '#005cbf',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    },
-  },
-})(Button);
+
 
 
 
@@ -103,6 +57,7 @@ function App() {
   const classes = useStyles();
 
   return (
+    <Router>
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
@@ -136,28 +91,18 @@ function App() {
       </AppBar>
       <MainDrawer />
       <main className={classes.content}>
-        <Toolbar className={classes.mainToolbar} >
-          <Grid container style={{width: '100%'}}>
-            <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
-              <Grid item xs={3} align="left">
-                <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'large'}} 
-                > Dashboard </Button>
-              </Grid>
-              <Grid item xs={3}>
-              <Button disabled  size="small" style={{textTransform:'none'}}>Purchase List</Button>
-              </Grid>
-            </Grid>
-            <Grid container item xs={6} direction="row-reverse" justify="flex-start">
-                <Grid item xs={4} align="right">
-                  <BootstrapButton variant="contained" color="primary" size="small" startIcon={<AddIcon />}> Add New Purchase </BootstrapButton>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Toolbar>
-        <Purchasetable />
+       
+           
+              <Switch>
+                  <Route path="/" component={Purchasetable} exact />
+                  <Route path="/createpurchase" component={Form} />
+                  <Route component={Error} />
+              </Switch>
+             
+        {/* <Purchasetable /> */}
       </main>
     </div>
+    </Router> 
   );
 
 

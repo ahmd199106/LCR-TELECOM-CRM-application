@@ -8,8 +8,58 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
+import trendingFlat from "../assets/images/trending_flat_24px_rounded.svg";
+import AddIcon from '@material-ui/icons/Add';
+import {Link} from "react-router-dom";
+import { withStyles } from '@material-ui/core/styles';
 
 
+const BootstrapButton = withStyles({
+    root: {
+      position:"absolute",
+      right: '0px',
+      // position: 'relative',
+      // left: '50px',
+      marginRight:'0px',
+      marginBottom: "5px",
+      boxShadow: 'none',
+      textTransform: 'none',
+      fontSize: 12,
+      padding: '6px 15px',
+      border: '1px solid',
+      lineHeight: 1.2,
+      backgroundColor: '#005FAF',
+      fontWeight:"700",
+      borderColor: '#0063cc',
+      fontFamily: [
+        '-apple-system',
+        'BlinkMacSystemFont',
+        '"Segoe UI"',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+      '&:hover': {
+        backgroundColor: '#0069d9',
+        borderColor: '#0062cc',
+        boxShadow: 'none',
+      },
+      '&:active': {
+        boxShadow: 'none',
+        backgroundColor: '#0062cc',
+        borderColor: '#005cbf',
+      },
+      '&:focus': {
+        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+      },
+    },
+  })(Button);
+  
+  
 
 
 const useStyles = makeStyles((theme) => ({
@@ -47,7 +97,15 @@ const useStyles = makeStyles((theme) => ({
         marginBottom:"5px",
         marginTop:"10px",
         backgroundColor:'#004AA5'
-      }
+      },
+      mainToolbar: {
+        marginTop: theme.spacing(2),
+       paddingTop:"80px",
+       paddingLeft:"0px",
+       paddingRight:"0px",
+       fontWeight:"bold",
+       width:"auto",
+      },
 }));
 
 
@@ -61,6 +119,35 @@ export default function Form () {
     }
     
     return (
+    <>
+        <div>
+        <Toolbar className={classes.mainToolbar} >
+          <Grid container style={{width: '100%'}}>
+            <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
+              <Grid item xs={3} align="left">
+                <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
+                style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'large'}} 
+                > Dashboard </Button>
+              </Grid>
+              <Grid item xs={3} align="left">
+                  <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
+                  style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'medium'}} 
+                  >Purchase List</Button>
+                </Grid>
+              <Grid item xs={3}>
+              <Button disabled  size="small" style={{textTransform:'none'}}>Add New Purchase</Button>
+              </Grid>
+            </Grid>
+            <Grid container item xs={6} direction="row-reverse" justify="flex-start">
+                <Grid item xs={4} align="right">
+                </Grid>
+            </Grid>
+          </Grid>
+        </Toolbar>
+
+        </div>
+
+
     <div className={classes.form}>
         <form onSubmit={handleSubmit(onSubmit)} >
             <Toolbar
@@ -95,18 +182,21 @@ export default function Form () {
                 <Grid item xs={12}  container direction="row-reverse" alignItems="flex-end"
                 style={{backgroundColor:"rgba(218, 218, 218, 0.5)",marginTop:"40px"}}
                 >
-                <Button variant="contained" color="secondary" className={classes.button} size="small">
-                    Cancel
-                </Button>
-                <Button variant="contained" color="primary" size="small" 
-                className={classes.buttonSave}  startIcon={<SaveIcon />}>
-                    Save
-                </Button>
+                    <Button variant="contained" color="secondary" className={classes.button} size="small">
+                        Cancel
+                    </Button>
+                    <Link to="/">
+                        <Button variant="contained" color="primary" size="small" 
+                        className={classes.buttonSave}  startIcon={<SaveIcon />}>
+                            Save
+                        </Button>
+                    </Link>
                 </Grid>
             </Grid>
     
         </form>
     </div>
+    </>
     );
     
     

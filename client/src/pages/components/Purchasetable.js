@@ -24,7 +24,56 @@ import CreateIcon from '@material-ui/icons/Create';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import PrintIcon from '@material-ui/icons/Print';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
+import { Grid } from "@material-ui/core";
+import Button from '@material-ui/core/Button';
+import trendingFlat from "../assets/images/trending_flat_24px_rounded.svg";
+import AddIcon from '@material-ui/icons/Add';
+import {Link} from "react-router-dom";
 
+const BootstrapButton = withStyles({
+  root: {
+    position:"absolute",
+    right: '0px',
+    // position: 'relative',
+    // left: '50px',
+    marginRight:'0px',
+    marginBottom: "5px",
+    boxShadow: 'none',
+    textTransform: 'none',
+    fontSize: 12,
+    padding: '6px 15px',
+    border: '1px solid',
+    lineHeight: 1.2,
+    backgroundColor: '#005FAF',
+    fontWeight:"700",
+    borderColor: '#0063cc',
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:hover': {
+      backgroundColor: '#0069d9',
+      borderColor: '#0062cc',
+      boxShadow: 'none',
+    },
+    '&:active': {
+      boxShadow: 'none',
+      backgroundColor: '#0062cc',
+      borderColor: '#005cbf',
+    },
+    '&:focus': {
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+    },
+  },
+})(Button);
 
 
 
@@ -265,6 +314,14 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
+  mainToolbar: {
+    marginTop: theme.spacing(2),
+   paddingTop:"80px",
+   paddingLeft:"0px",
+   paddingRight:"0px",
+   fontWeight:"bold",
+   width:"auto",
+  },
 }));
 
 export default function Purchasetable() {
@@ -334,88 +391,115 @@ export default function Purchasetable() {
 
 
   return (
-    <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer 
-        style={{height:'257px'}}
-        >
-          <Table
-            className={classes.table}
-            aria-labelledby="tableTitle"
-            size={dense ? 'small' : 'medium'}
-            aria-label="enhanced table"
-          >
-            <EnhancedTableHead
-              classes={classes}
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={rows.length}
-            />
-            <TableBody>
-              {stableSort(rows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
-                  const labelId = `enhanced-table-checkbox-${index}`;
+      <>
+        <div>
+        <Toolbar className={classes.mainToolbar} >
+          <Grid container style={{width: '100%'}}>
+            <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
+              <Grid item xs={3} align="left">
+                <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
+                style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'large'}} 
+                > Dashboard </Button>
+              </Grid>
+              <Grid item xs={3}>
+              <Button disabled  size="small" style={{textTransform:'none'}}>Purchase List</Button>
+              </Grid>
+            </Grid>
+            <Grid container item xs={6} direction="row-reverse" justify="flex-start">
+                <Grid item xs={4} align="right">
+                  <Link to="/createpurchase">
+                    <BootstrapButton variant="contained" color="primary" size="small" startIcon={<AddIcon />}> Add New Purchase </BootstrapButton>
+                  </Link>
+                </Grid>
+            </Grid>
+          </Grid>
+        </Toolbar>
 
-                  return (
-                    <StyledTableRow
-                      hover
-                      onClick={(event) => handleClick(event, row.name)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={row.name}
-                      selected={isItemSelected}
-                      style={{fontSize: '5px'}}
-                    >
-                      <StyledTableCell padding="checkbox">
-                        <Checkbox
-                          checked={isItemSelected}
-                          inputProps={{ 'aria-labelledby': labelId }}
-                        />
-                      </StyledTableCell>
-                      <StyledTableCell component="th" id={labelId} scope="row">
-                        {row.clientName}
-                      </StyledTableCell>
-                      <StyledTableCell align="center">{row.routeName}</StyledTableCell>
-                      <StyledTableCell align="center">{row.destination}</StyledTableCell>
-                      <StyledTableCell align="center">{row.destinationCode}</StyledTableCell>
-                      <StyledTableCell align="left">{row.rate}</StyledTableCell>
-                      <StyledTableCell align="left">{row.acd}</StyledTableCell>
-                      <StyledTableCell align="left">{row.asr}</StyledTableCell>
-                      <StyledTableCell align="left">{row.date}</StyledTableCell>
-                      <StyledTableCell align="left">{row.action}</StyledTableCell>
+        </div>
+
+        <div className={classes.root}>
+          <Paper className={classes.paper}>
+            <EnhancedTableToolbar numSelected={selected.length} />
+            <TableContainer 
+            style={{height:'257px'}}
+            >
+              <Table
+                className={classes.table}
+                aria-labelledby="tableTitle"
+                size={dense ? 'small' : 'medium'}
+                aria-label="enhanced table"
+              >
+                <EnhancedTableHead
+                  classes={classes}
+                  numSelected={selected.length}
+                  order={order}
+                  orderBy={orderBy}
+                  onSelectAllClick={handleSelectAllClick}
+                  onRequestSort={handleRequestSort}
+                  rowCount={rows.length}
+                />
+                <TableBody>
+                  {stableSort(rows, getComparator(order, orderBy))
+                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                    .map((row, index) => {
+                      const isItemSelected = isSelected(row.name);
+                      const labelId = `enhanced-table-checkbox-${index}`;
+
+                      return (
+                        <StyledTableRow
+                          hover
+                          onClick={(event) => handleClick(event, row.name)}
+                          role="checkbox"
+                          aria-checked={isItemSelected}
+                          tabIndex={-1}
+                          key={row.name}
+                          selected={isItemSelected}
+                          style={{fontSize: '5px'}}
+                        >
+                          <StyledTableCell padding="checkbox">
+                            <Checkbox
+                              checked={isItemSelected}
+                              inputProps={{ 'aria-labelledby': labelId }}
+                            />
+                          </StyledTableCell>
+                          <StyledTableCell component="th" id={labelId} scope="row">
+                            {row.clientName}
+                          </StyledTableCell>
+                          <StyledTableCell align="center">{row.routeName}</StyledTableCell>
+                          <StyledTableCell align="center">{row.destination}</StyledTableCell>
+                          <StyledTableCell align="center">{row.destinationCode}</StyledTableCell>
+                          <StyledTableCell align="left">{row.rate}</StyledTableCell>
+                          <StyledTableCell align="left">{row.acd}</StyledTableCell>
+                          <StyledTableCell align="left">{row.asr}</StyledTableCell>
+                          <StyledTableCell align="left">{row.date}</StyledTableCell>
+                          <StyledTableCell align="left">{row.action}</StyledTableCell>
+                        </StyledTableRow>
+                      );
+                    })}
+                  {emptyRows > 0 && (
+                    <StyledTableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
+                      <StyledTableCell colSpan={6} />
                     </StyledTableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <StyledTableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <StyledTableCell colSpan={6} />
-                </StyledTableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-          style={{lineHeight: '0.1', height: '40px'}}
-        />
-       </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} color="primary"/>}
-        label="Dense"
-      />
+                  )}
+                </TableBody>
+              </Table>
+            </TableContainer>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={rows.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onChangePage={handleChangePage}
+              onChangeRowsPerPage={handleChangeRowsPerPage}
+              style={{lineHeight: '0.1', height: '40px'}}
+            />
+          </Paper>
+          <FormControlLabel
+            control={<Switch checked={dense} onChange={handleChangeDense} color="primary"/>}
+            label="Dense"
+          />
     </div>
+    </>
   );
 }

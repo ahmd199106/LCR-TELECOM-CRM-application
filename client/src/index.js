@@ -5,7 +5,7 @@ import CreatePurchase from './CreatePurchase'
 
 ReactDOM.render(
   <React.StrictMode>
-    <CreatePurchase />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
