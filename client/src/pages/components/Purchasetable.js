@@ -324,7 +324,7 @@ const useStyles = makeStyles((theme) => ({
   },
   stepper: {
     fontSize: 18,
-    marginLeft:"25px",
+    marginLeft:"0px",
     marginBottom:"15px"
   },
   stepperdisabled: {
