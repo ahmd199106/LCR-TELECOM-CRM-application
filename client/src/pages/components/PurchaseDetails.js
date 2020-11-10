@@ -88,10 +88,14 @@ const StyledTableCell = withStyles((theme) => ({
        fontWeight:"bold",
        width:"auto",
       },
+      stepper: {
+        fontSize: 18,
+      },
       title: {
+          //fontSize: 17,
          // display: 'flex',
         flex: '1 1 100%',
-        width: '100%',
+        //width: '100%',
         //paddingLeft: theme.spacing(3),
       },
     }));
@@ -106,32 +110,21 @@ export default function PurchaseDetails() {
         <div>
             <div>
             <Toolbar className={classes.mainToolbar} >
-                <Grid container style={{width: '100%'}}>
-                    <Grid container item xs={7} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
-                        <Grid item xs={3} align="left">
-                            <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                            style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'medium',paddingLeft:'20px'}} 
-                            > Dashboard </Button>
-                        </Grid>
-                        <Grid item xs={3} align="left">
-                            <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                            style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'medium',paddingLeft:'0px'}} 
-                            >Purchase List</Button>
-                            </Grid>
-                            <Grid item xs={3} align="left">
-                            <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                            style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'medium',paddingRight:'0px'}} 
-                            >Add New Purchase</Button>
-                            </Grid>
-                        <Grid item xs={3}>
-                        <Button disabled  size="small" style={{textTransform:'none',fontSize:'small',paddingLeft:'35px'}}>Purchase Details</Button>
-                        </Grid>
-                        </Grid>
-                    <Grid container item xs={5} direction="row-reverse" justify="flex-start">
-                        <Grid item xs={4} align="right">
-                        </Grid>
-                    </Grid>
-                </Grid>
+            <Typography className={classes.stepper} variant="h6" component="div">
+                Dashboard
+            </Typography>
+            <img alt="trending flat" src={trendingFlat} style={{marginRight:"30px",marginLeft:"5px"}} />
+            <Typography className={classes.stepper} variant="h6" component="div">
+                Purchase List
+            </Typography>
+            <img alt="trending flat" src={trendingFlat} style={{marginRight:"30px",marginLeft:"5px"}}/>
+            <Typography className={classes.stepper} variant="h6" component="div">
+                Add New Purchase
+            </Typography>
+            <img alt="trending flat" src={trendingFlat} style={{marginRight:"30px",marginLeft:"5px"}}/>
+            <Typography className={classes.stepper} variant="h6" component="div" style={{color:"lightgrey"}}>
+                Purchase Details
+            </Typography>
             </Toolbar>
         </div>
         <div className={classes.root}>

@@ -322,6 +322,15 @@ const useStyles = makeStyles((theme) => ({
    fontWeight:"bold",
    width:"auto",
   },
+  stepper: {
+    fontSize: 18,
+    marginLeft:"25px",
+    marginBottom:"15px"
+  },
+  stepperdisabled: {
+    fontSize: 18,
+    marginBottom:"15px"
+  }
 }));
 
 export default function Purchasetable() {
@@ -395,15 +404,14 @@ export default function Purchasetable() {
         <div>
         <Toolbar className={classes.mainToolbar} >
           <Grid container style={{width: '100%'}}>
-            <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
-              <Grid item xs={3} align="left">
-                <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'large'}} 
-                > Dashboard </Button>
-              </Grid>
-              <Grid item xs={3}>
-              <Button disabled  size="small" style={{textTransform:'none'}}>Purchase List</Button>
-              </Grid>
+            <Grid container item xs={6} direction="row" >
+            <Typography className={classes.stepper} variant="h6" component="div">
+                Dashboard
+            </Typography>
+            <img alt="trending flat" src={trendingFlat} style={{marginRight:"30px",marginLeft:"5px",marginBottom:"15px"}} />
+            <Typography className={classes.stepperdisabled} variant="h6" component="div" style={{color:"lightgrey"}}>
+                Purchase List
+            </Typography>
             </Grid>
             <Grid container item xs={6} direction="row-reverse" justify="flex-start">
                 <Grid item xs={4} align="right">

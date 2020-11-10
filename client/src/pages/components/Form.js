@@ -58,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
        fontWeight:"bold",
        width:"auto",
       },
+      stepper: {
+        fontSize: 18,
+      },
 }));
 
 
@@ -74,27 +77,18 @@ export default function Form () {
     <>
         <div>
             <Toolbar className={classes.mainToolbar} >
-                <Grid container style={{width: '100%'}}>
-                    <Grid container item xs={6} direction="row" justify="flex-start" alignItems="baseline" spacing={1}>
-                    <Grid item xs={3} align="left">
-                        <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                        style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'large'}} 
-                        > Dashboard </Button>
-                    </Grid>
-                    <Grid item xs={3} align="left">
-                        <Button  size="small" endIcon={<img alt="trending flat" src={trendingFlat} />} 
-                        style={{textTransform:'none', marginLeft:'0px', textAlign:'left',fontSize:'medium'}} 
-                        >Purchase List</Button>
-                        </Grid>
-                    <Grid item xs={3}>
-                    <Button disabled  size="small" style={{textTransform:'none'}}>Add New Purchase</Button>
-                    </Grid>
-                    </Grid>
-                    <Grid container item xs={6} direction="row-reverse" justify="flex-start">
-                        <Grid item xs={4} align="right">
-                        </Grid>
-                    </Grid>
-                </Grid>
+            <Typography className={classes.stepper} variant="h6" component="div">
+                Dashboard
+            </Typography>
+            <img alt="trending flat" src={trendingFlat} style={{marginRight:"30px",marginLeft:"5px"}} />
+            <Typography className={classes.stepper} variant="h6" component="div">
+                Purchase List
+            </Typography>
+            <img alt="trending flat" src={trendingFlat} style={{marginRight:"30px",marginLeft:"5px"}}/>
+            <Typography className={classes.stepper} variant="h6" component="div" style={{color:"lightgrey"}}>
+                Add New Purchase
+            </Typography>
+            
             </Toolbar>
         </div>
         <div className={classes.form}>
