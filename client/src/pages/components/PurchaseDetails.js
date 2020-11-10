@@ -137,7 +137,7 @@ export default function PurchaseDetails() {
                 aria-label="enhanced table"
               >
                 <TableHead style={{display: 'flex'}}> 
-                <Toolbar style={{backgroundColor:'#DCDCDC',color: '#fff',marginBottom:"10px",width:"65.5%",display: 'flex',}} ></Toolbar>
+                {/* <Toolbar style={{backgroundColor:'#DCDCDC',color: '#fff',marginBottom:"10px",width:"65.5%",display: 'flex',}} ></Toolbar> */}
                             <Toolbar style={{backgroundColor:'#DCDCDC',color: '#fff',marginBottom:"10px",width:"65.5%",display: 'flex',position: 'absolute'}} >
                                 <Typography className={classes.title}>
                                 <Link  to="/" style={{textDecoration: 'none'}}> 
