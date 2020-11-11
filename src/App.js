@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import MainNavBar from "./pages/components/MainNavBar"
-import Purchasetable from "./pages/components/Purchasetable";
-import MainDrawer from "./pages/components/MainDrawer";
-import Error from "./pages/components/Error";
-import Form from "./pages/components/Form";
-import PurchaseDetails from "./pages/components/PurchaseDetails";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import MainNavBar from './pages/components/MainNavBar';
+import MainDrawer from './pages/components/MainDrawer';
+import Error from './pages/components/Error';
+// *** Import Application pages ***
+import Create_Purchase from './pages/create_purchase';
+import Purchase_List from './pages/purchase_list';
+import Purchase_Details from './pages/purchase_details';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,35 +17,29 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: '1',
     padding: theme.spacing(3),
-    marginTop:theme.spacing(0),
+    marginTop: theme.spacing(0),
   },
 }));
-
-
-
-
 
 function App() {
   const classes = useStyles();
 
   return (
     <Router>
-    <div className={classes.root}>
-      <MainNavBar />
-      <MainDrawer />
-      <main className={classes.content}>
-              <Switch>
-                  <Route path="/" component={Purchasetable} exact />
-                  <Route path="/createpurchase" component={Form} />
-                  <Route path="/purchasedetails" component={PurchaseDetails} />
-                  <Route component={Error} />
-              </Switch>
-      </main>
-    </div>
-    </Router> 
+      <div className={classes.root}>
+        <MainNavBar />
+        <MainDrawer />
+        <main className={classes.content}>
+          <Switch>
+            <Route path="/" component={Purchase_List} exact />
+            <Route path="/createpurchase" component={Create_Purchase} />
+            <Route path="/purchasedetails" component={Purchase_Details} />
+            <Route component={Error} />
+          </Switch>
+        </main>
+      </div>
+    </Router>
   );
-
-
 }
 
 export default App;

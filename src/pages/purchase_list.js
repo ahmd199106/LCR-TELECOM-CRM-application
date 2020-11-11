@@ -26,7 +26,7 @@ import PrintIcon from '@material-ui/icons/Print';
 import DeleteSweepIcon from '@material-ui/icons/DeleteSweep';
 import { Grid } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
-import trendingFlat from "../assets/images/trending_flat_24px_rounded.svg";
+import trendingFlat from "./assets/images/trending_flat_24px_rounded.svg";
 import AddIcon from '@material-ui/icons/Add';
 import {Link} from "react-router-dom";
 
