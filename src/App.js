@@ -4,7 +4,7 @@ import MainNavBar from './pages/components/MainNavBar';
 import MainDrawer from './pages/components/MainDrawer';
 import Error from './pages/components/Error';
 // *** Import Application pages ***
-import Create_Purchase from './pages/create_purchase';
+import Create_Purchase from './pages/purchase_create';
 import Purchase_List from './pages/purchase_list';
 import Purchase_Details from './pages/purchase_details';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
