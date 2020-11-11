@@ -5,7 +5,14 @@ import Dashboard_card from './components/cards/dashboard_cout';
 
 const Purchase_dashboard = () => {
   return (
-    <Paper style={{ paddingTop: 100, padding: 100 }}>
+    <Paper
+      style={{
+        paddingTop: 100,
+        paddingLeft: 50,
+        paddingBottom: 50,
+        paddingRight: 50,
+      }}
+    >
       <Grid
         xs={12}
         container
