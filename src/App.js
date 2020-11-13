@@ -8,6 +8,8 @@ import Create_Purchase from './pages/purchase_create';
 import Purchase_List from './pages/purchase_list';
 import Purchase_Details from './pages/purchase_details';
 import Purchase_dashboard from './pages/purchase_dashboard';
+import Desktop_Login from './pages/desktop_login';
+import Price_Table from './pages/price_table';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,14 +30,16 @@ function App() {
   return (
     <Router>
       <div className={classes.root}>
-        <MainNavBar />
-        <MainDrawer />
+        {/* <MainNavBar />
+        <MainDrawer /> */}
         <main className={classes.content}>
           <Switch>
             <Route exact path="/" component={Purchase_dashboard} />
             <Route path="/purchaselist" component={Purchase_List} />
             <Route path="/createpurchase" component={Create_Purchase} />
             <Route path="/purchasedetails" component={Purchase_Details} />
+            <Route path="/login" component={Desktop_Login} />
+            <Route path="/subscription" component={Price_Table} />
             <Route component={Error} />
           </Switch>
         </main>
