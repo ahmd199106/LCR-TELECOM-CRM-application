@@ -14,7 +14,15 @@ const Desktop_Login = () => {
       >
         <Grid xs={7} item style={{ display: 'flex', height: 400 }}>
           <Paper style={{ display: 'flex' }}>
-            <Grid xs={5} item style={{ backgroundColor: 'blue' }}></Grid>
+            <Grid
+              xs={5}
+              item
+              style={{
+                backgroundImage:
+                  'url("https://www.smartcitiesworld.net/AcuCustom/Sitename/DAM/019/cicruit_board__city_Adobe_rm.jpg")',
+                objectFit: 'fill',
+              }}
+            ></Grid>
             <Grid xs={7} item>
               <Grid
                 xs={12}

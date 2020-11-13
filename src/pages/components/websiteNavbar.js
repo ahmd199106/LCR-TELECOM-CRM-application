@@ -11,6 +11,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Badge from '@material-ui/core/Badge';
 import logo from '../assets/images/LcrTelLogo1.png';
 import UserImage from '../assets/images/UserImage.png';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -30,18 +31,32 @@ export default function MainNavBar() {
       <CssBaseline />
       <AppBar className={classes.appBar}>
         <Toolbar>
-          <Grid container spacing={1}>
+          <Grid
+            container
+            spacing={1}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
             <Grid container xs={6} spacing={1}>
               <Grid item xs={3}>
                 <img src={logo} style={{ marginTop: 5 }} alt="Logo" />
               </Grid>
               <Grid item xs={8}></Grid>
             </Grid>
+
             <Button style={{ flexGrow: 1 }} />
-            <Button color="inherit">Login</Button>
-            <Button color="inherit">Contact us</Button>
-            <Button color="inherit">Registration</Button>
-            <Button color="inherit">Pricing</Button>
+
+            <Link to="/login">
+              <Button color="inherit">Contact us</Button>
+            </Link>
+            <Link to="/login">
+              <Button color="inherit">Registration</Button>
+            </Link>
+            <Link to="/subscription">
+              <Button color="inherit">Pricing</Button>
+            </Link>
+            <Link to="/login">
+              <Button color="inherit">Login</Button>
+            </Link>
           </Grid>
         </Toolbar>
       </AppBar>
