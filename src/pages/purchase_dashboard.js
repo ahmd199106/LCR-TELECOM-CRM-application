@@ -12,24 +12,40 @@ import Dashboard_card from './components/cards/dashboard_cout';
 
 const Purchase_dashboard = () => {
   return (
-      <Paper
-        style={{
-          marginTop: 60,
-          padding: 50,
-        }}
-      >
-        <Grid
-          xs={12}
-          container
-          justify = 'space-between' 
-        >
-          <Dashboard_card color="#6B54C9"  name="Purchase" value="500000" percentage="+25"/>
-          <Dashboard_card color="#6CD243"  name="Clients" value="569" percentage="+89" />
-          <Dashboard_card color="#E91E63"  name="Route Offers" value="301" percentage="-10"/>
-          <Dashboard_card color="#9A0BCC"  name="Targets" value="568" percentage="-30"/>
-        </Grid>
-        <Link to="/Purchase_List" >button</Link>
-      </Paper>
+    <Paper
+      style={{
+        marginTop: 60,
+        padding: 50,
+      }}
+    >
+      <Grid xs={12} container justify="space-between">
+        <Dashboard_card
+          color="#6B54C9"
+          name="Purchase"
+          value="500000"
+          percentage="+25"
+        />
+        <Dashboard_card
+          color="#6CD243"
+          name="Clients"
+          value="569"
+          percentage="+89"
+        />
+        <Dashboard_card
+          color="#E91E63"
+          name="Route Offers"
+          value="301"
+          percentage="-10"
+        />
+        <Dashboard_card
+          color="#9A0BCC"
+          name="Targets"
+          value="568"
+          percentage="-30"
+        />
+      </Grid>
+      <Link to="/Purchase_List">button</Link>
+    </Paper>
   );
 };
 
