@@ -51,7 +51,7 @@ export default function MainNavBar() {
             <Link to="/login">
               <Button color="inherit">Registration</Button>
             </Link>
-            <Link to="/subscription">
+            <Link to="/pricing">
               <Button color="inherit">Pricing</Button>
             </Link>
             <Link to="/login">
