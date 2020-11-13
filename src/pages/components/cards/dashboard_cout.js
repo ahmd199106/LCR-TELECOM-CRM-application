@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Paper, Grid, Typography } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
-const Dashboard_count = ({ color }) => {
+const Dashboard_count = ({ color,name,value,percentage }) => {
   return (
     <Paper
       style={{
@@ -21,7 +21,7 @@ const Dashboard_count = ({ color }) => {
             fontFamily: 'roboto',
           }}
         >
-          Purchases
+          {name}
         </Typography>
       </Grid>
       <Grid
@@ -52,27 +52,26 @@ const Dashboard_count = ({ color }) => {
         &nbsp; &nbsp;
         <Typography
           style={{
+            marginLeft: 5,
             fontWeight: 500,
             fontSize: 40,
             fontFamily: 'roboto',
             color: 'white',
           }}
         >
-          50000
+          {value}
         </Typography>
       </Grid>
-      <Grid xs={12} item style={{ display: 'flex', justifyContent: 'center' }}>
+      <Grid xs={12} container item  justify = 'center' >
         <Typography
           style={{
-            fontWeight: 500,
+            fontWeight: 700,
             fontSize: '12',
             fontFamily: 'roboto',
             color: 'white',
             paddingBottom: 5,
           }}
-        >
-          +25 in this month
-        </Typography>
+        >{percentage} in this month</Typography>
       </Grid>
     </Paper>
   );

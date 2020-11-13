@@ -239,7 +239,7 @@ export default function Form() {
               >
                 Cancel
               </Button>
-              <Link to="/purchasedetails">
+              <Link to="/Purchase_Details">
                 <Button
                   variant="contained"
                   color="primary"

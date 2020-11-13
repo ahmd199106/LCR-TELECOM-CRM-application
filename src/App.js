@@ -26,21 +26,21 @@ function App() {
   const classes = useStyles();
 
   return (
-    <Router>
+    
       <div className={classes.root}>
         <MainNavBar />
-        <MainDrawer />
+        <MainDrawer />   
         <main className={classes.content}>
           <Switch>
             <Route exact path="/" component={Purchase_dashboard} />
-            <Route path="/purchaselist" component={Purchase_List} />
-            <Route path="/createpurchase" component={Create_Purchase} />
-            <Route path="/purchasedetails" component={Purchase_Details} />
+            <Route exact path="/Purchase_List" component={Purchase_List} />
+            <Route exact path="/Create_Purchase" component={Create_Purchase} />
+            <Route exact path="/Purchase_Details" component={Purchase_Details} />
             <Route component={Error} />
           </Switch>
         </main>
       </div>
-    </Router>
+    
   );
 }
 
