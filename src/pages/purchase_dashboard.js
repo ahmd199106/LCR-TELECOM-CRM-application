@@ -4,6 +4,10 @@ import MainDrawer from '../pages/components/MainDrawer';
 import { Link } from 'react-router-dom';
 import { Paper, Typography, Grid } from '@material-ui/core';
 import Dashboard_card from './components/cards/dashboard_cout';
+import ChartStudents from './components/charts/ChartStudents';
+import ChartDeals from './components/charts/ChartDeals';
+import ChartTasks from './components/charts/ChartTasks';
+
 // import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 // import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 
@@ -15,11 +19,16 @@ const Purchase_dashboard = () => {
     <>
       <MainNavBar />
       <MainDrawer />
-
+      <>
       <Paper
         style={{
-          marginTop: 60,
-          padding: 50,
+          marginTop: 80,
+          marginLeft: 290,
+          marginRight: 50,
+          paddingTop: 25,
+          paddingLeft: 25,
+          paddingRight: 25,
+          paddingBottom: 25,
         }}
       >
         <Grid xs={12} container justify="space-between">
@@ -48,8 +57,56 @@ const Purchase_dashboard = () => {
             percentage="-30"
           />
         </Grid>
-        <Link to="/Purchase_List">button</Link>
+        {/* <Link style={{ color:"black"}} to="/purchaselist">
+           <h1>button</h1>
+           </Link> */}
+          <Grid container spacing={1}
+          style={{
+            width: "80%",
+            height: 300,
+            backgroundColor: "white",
+            margin: "20px auto 10px auto",
+
+            paddingLeft: 30,
+            borderRadius: 10,
+          }}
+          >
+            <ChartStudents />
+          </Grid>
+          <Grid container xs={12} spacing={1}>
+            <Grid item xs={5.5}
+            style={{
+              width: "45%",
+              height: 300,
+              backgroundColor: "white",
+              //margin: "20px auto 10px auto",
+
+              //paddingLeft: 30,
+              borderRadius: 10,
+              marginLeft: 12,
+            }}
+            >
+              <ChartDeals />
+            </Grid>
+            <Grid item xs={1}>
+
+            </Grid>
+            <Grid item xs={5.5}
+            style={{
+              width: "45%",
+              height: 300,
+              backgroundColor: "white",
+              //paddingLeft: 30,
+              borderRadius: 10,
+              marginLeft: 0,
+            }}
+            >
+              <ChartTasks />
+            </Grid>
+          </Grid>
       </Paper>
+      
+      </>
     </>
   );
 };

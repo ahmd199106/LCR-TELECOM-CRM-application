@@ -6,16 +6,18 @@ const Dashboard_count = ({ color,name,value,percentage }) => {
   return (
     <Paper
       style={{
-        width: 223,
+        width: 243,
         height: 115,
         backgroundColor: color,
         padding: 10,
+        paddingLeft: 30,
+        borderRadius: 10,
       }}
     >
       <Grid xs={12} item>
         <Typography
           style={{
-            fontWeight: 500,
+            fontWeight: 700,
             color: 'white',
             fontSize: 15,
             fontFamily: 'roboto',
