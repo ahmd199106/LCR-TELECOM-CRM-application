@@ -7,15 +7,36 @@ import GroupIcon from '@material-ui/icons/Group';
 import ImportExportIcon from '@material-ui/icons/ImportExport';
 import purchaseIcon from "../assets/images/purchasing1.png";
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
-import Toolbar from '@material-ui/core/Toolbar';
-
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Typography from '@material-ui/core/Typography';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Toolbar from '@material-ui/core/Toolbar';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import DehazeIcon from '@material-ui/icons/Dehaze';
+import { Grid, IconButton } from '@material-ui/core';
+import { deepOrange } from '@material-ui/core/colors';
+import Avatar from '@material-ui/core/Avatar';
+import Badge from '@material-ui/core/Badge';
+import logo from '../assets/images/LcrTelLogo1.png';
+import UserImage from '../assets/images/UserImage.png';
+import { Link } from 'react-router-dom';
+
 
 
 const drawerWidth = 242;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: '#FFFFFF',
+    height: '64px',
+  },
+  orange: {
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
+  },
+
     drawer: {
         display: 'flex',
         width:drawerWidth,
@@ -37,7 +58,7 @@ const useStyles = makeStyles({
         fontWeight: '800',
         backgroundColor:'#005FAF'
       },
-})
+    }));
 
 
 
@@ -77,6 +98,50 @@ const MainDrawer = (props) => {
     // ];
 
 return (
+  <>
+  <div>
+  <CssBaseline />
+  <AppBar position="fixed" className={classes.appBar}>
+    <Toolbar>
+      <Grid container spacing={1}>
+        <Grid container xs={6} spacing={1}>
+          <Grid item xs={1}>
+            <DehazeIcon
+              fontSize="small"
+              style={{ marginTop: 15, color: '#000' }}
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <img src={logo} style={{ marginTop: 5 }} alt="Logo" />
+          </Grid>
+          <Grid item xs={8}></Grid>
+        </Grid>
+        <Grid container xs={6}>
+          <Grid item xs={9}></Grid>
+          <Grid item xs={1}>
+            <IconButton>
+              <Badge badgeContent={17} color="secondary">
+                <NotificationsIcon
+                  fontSize="small"
+                  style={{ marginTop: 5 }}
+                />
+              </Badge>
+            </IconButton>
+          </Grid>
+          <Grid item xs={1} align="right">
+            <Avatar
+              className={classes.orange}
+              alt="User Image"
+              src={UserImage}
+            />
+          </Grid>
+          <Grid item xs={1}></Grid>
+        </Grid>
+      </Grid>
+    </Toolbar>
+  </AppBar>
+</div>
+
     <Drawer 
     className={classes.drawer}
     variant="permanent"
@@ -100,6 +165,7 @@ return (
               </ListItemIcon>
               <ListItemText primary="Dashboard" style={{color:'white'}}/>
             </ListItem>
+            <Link to="/purchaselist">
             <ListItem
             style={{backgroundColor:(selectedIndex === 1) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -111,7 +177,8 @@ return (
               </ListItemIcon>
               <ListItemText primary="Purchases" style={{color:'white'}}/>
             </ListItem>
-          
+            </Link>
+            <Link to="/clientlist">
           <ListItem
           style={{backgroundColor:(selectedIndex === 2) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -123,6 +190,7 @@ return (
               </ListItemIcon>
               <ListItemText primary="Clients" style={{color:'white'}}/>
             </ListItem>
+            </Link>
             <ListItem
             style={{backgroundColor:(selectedIndex === 3) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -164,7 +232,7 @@ return (
           </List>  
         </div>
       </Drawer>
-
+      </>
 )
 }
 

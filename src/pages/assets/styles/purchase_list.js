@@ -70,7 +70,7 @@ export const someStyles = (theme) => {
     },
     mainToolbar: {
       marginTop: theme.spacing(2),
-      paddingTop: '80px',
+      paddingTop: '0px',
       paddingLeft: '0px',
       paddingRight: '0px',
       fontWeight: 'bold',

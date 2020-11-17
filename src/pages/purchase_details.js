@@ -18,6 +18,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import PrintIcon from '@material-ui/icons/Print';
+import MainDrawer from '../pages/components/MainDrawer';
+
 
 function createData(parameter, value) {
   return { parameter, value };
@@ -27,7 +29,7 @@ const rows = [
   createData('Client Name', 'Celltech'),
   createData('Route Name', 'PTD'),
   createData('Destination', 'India'),
-  createData('Destination Code', '84'),
+  createData('DestinationCode', '84'),
   createData('Rate', '28'),
   createData('ACD', '32'),
   createData('ASR', '28'),
@@ -75,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mainToolbar: {
     marginTop: theme.spacing(2),
-    paddingTop: '80px',
+    paddingTop: '0px',
     paddingLeft: '0px',
     paddingRight: '0px',
     fontWeight: 'bold',
@@ -97,7 +99,20 @@ export default function PurchaseDetails() {
   const classes = useStyles();
 
   return (
-    <div>
+    <>
+       <MainDrawer />
+        <>
+        <Paper
+        style={{
+          marginTop: 80,
+          marginLeft: 290,
+          marginRight: 50,
+          paddingTop: 25,
+          paddingLeft: 25,
+          paddingRight: 25,
+          paddingBottom: 25,
+        }}
+      >
       <div>
         <Toolbar className={classes.mainToolbar}>
           <Typography className={classes.stepper} variant="h6" component="div">
@@ -143,16 +158,16 @@ export default function PurchaseDetails() {
               size="large"
               aria-label="enhanced table"
             >
-              <TableHead style={{ display: 'flex' }}>
+              <TableHead style={{ display: 'flex',width:"192%" }}>
                 {/* <Toolbar style={{backgroundColor:'#DCDCDC',color: '#fff',marginBottom:"10px",width:"65.5%",display: 'flex',}} ></Toolbar> */}
                 <Toolbar
                   style={{
                     backgroundColor: '#DCDCDC',
                     color: '#fff',
                     marginBottom: '10px',
-                    width: '65.5%',
+                    width: '300%',
                     display: 'flex',
-                    position: 'absolute',
+                    //position: 'absolute',
                   }}
                 >
                   <Typography className={classes.title}>
@@ -192,6 +207,8 @@ export default function PurchaseDetails() {
           </TableContainer>
         </Paper>
       </div>
-    </div>
+      </Paper>
+      </>
+    </>
   );
 }

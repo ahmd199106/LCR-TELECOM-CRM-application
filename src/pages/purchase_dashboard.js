@@ -1,5 +1,4 @@
 import React from 'react';
-import MainNavBar from '../pages/components/MainNavBar';
 import MainDrawer from '../pages/components/MainDrawer';
 import { Link } from 'react-router-dom';
 import { Paper, Typography, Grid } from '@material-ui/core';
@@ -17,9 +16,9 @@ import ChartTasks from './components/charts/ChartTasks';
 const Purchase_dashboard = () => {
   return (
     <>
-      <MainNavBar />
       <MainDrawer />
-      <>
+      
+    <>
       <Paper
         style={{
           marginTop: 80,

@@ -9,6 +9,8 @@ import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import trendingFlat from './assets/images/trending_flat_24px_rounded.svg';
 import { Link } from 'react-router-dom';
+import MainDrawer from '../pages/components/MainDrawer';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -48,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   mainToolbar: {
     marginTop: theme.spacing(2),
-    paddingTop: '80px',
+    paddingTop: '0px',
     paddingLeft: '0px',
     paddingRight: '0px',
     fontWeight: 'bold',
@@ -70,6 +72,19 @@ export default function Form() {
 
   return (
     <>
+      <MainDrawer />
+        <>
+        <Paper
+        style={{
+          marginTop: 80,
+          marginLeft: 290,
+          marginRight: 50,
+          paddingTop: 25,
+          paddingLeft: 25,
+          paddingRight: 25,
+          paddingBottom: 25,
+        }}
+      >
       <div>
         <Toolbar className={classes.mainToolbar}>
           <Typography className={classes.stepper} variant="h6" component="div">
@@ -239,7 +254,7 @@ export default function Form() {
               >
                 Cancel
               </Button>
-              <Link to="/Purchase_Details">
+              <Link to="/purchasedetails">
                 <Button
                   variant="contained"
                   color="primary"
@@ -254,6 +269,9 @@ export default function Form() {
           </Grid>
         </form>
       </div>
+      
+      </Paper>
+      </>
     </>
   );
 }
