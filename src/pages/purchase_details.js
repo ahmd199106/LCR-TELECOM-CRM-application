@@ -86,13 +86,6 @@ const useStyles = makeStyles((theme) => ({
   stepper: {
     fontSize: 18,
   },
-  title: {
-    //fontSize: 17,
-    // display: 'flex',
-    flex: '1 1 100%',
-    //width: '100%',
-    //paddingLeft: theme.spacing(3),
-  },
 }));
 
 export default function PurchaseDetails() {
@@ -170,7 +163,9 @@ export default function PurchaseDetails() {
                     //position: 'absolute',
                   }}
                 >
-                  <Typography className={classes.title}>
+                  <Typography 
+                  style={{flex:"1 1 100%"}}
+                  >
                     <Link to="/" style={{ textDecoration: 'none' }}>
                       <Button
                         style={{

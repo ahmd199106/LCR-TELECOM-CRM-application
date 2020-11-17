@@ -20,7 +20,7 @@ const Dashboard_count = ({ color,name,value,percentage }) => {
             fontWeight: 700,
             color: 'white',
             fontSize: 15,
-            fontFamily: 'roboto',
+            fontFamily: 'Tahoma',
           }}
         >
           {name}
@@ -55,9 +55,9 @@ const Dashboard_count = ({ color,name,value,percentage }) => {
         <Typography
           style={{
             marginLeft: 5,
-            fontWeight: 500,
+            fontWeight: 549,
             fontSize: 40,
-            fontFamily: 'roboto',
+            fontFamily: 'Helvetica',
             color: 'white',
           }}
         >
@@ -68,8 +68,8 @@ const Dashboard_count = ({ color,name,value,percentage }) => {
         <Typography
           style={{
             fontWeight: 700,
-            fontSize: '12',
-            fontFamily: 'roboto',
+            fontSize: '10',
+            fontFamily: 'Tahoma',
             color: 'white',
             paddingBottom: 5,
           }}

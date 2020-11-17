@@ -76,7 +76,7 @@ const BootstrapButton = withStyles({
 })(Button);
 
 function createData(
-  name,
+  clientName,
   companyName,
   country,
   skypeId,
@@ -85,7 +85,7 @@ function createData(
   action
 ) {
   return {
-    name,
+    clientName,
     companyName,
     country,
     skypeId,
@@ -246,11 +246,11 @@ const StyledTableCell = withStyles((theme) => ({
     //backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
     fontSize: 12,
-    lineHeight: '0.1',
+    lineHeight: 0.1,
   },
   body: {
     fontSize: 12,
-    lineHeight: '0.1',
+    lineHeight: 0.1,
   },
 }))(TableCell);
 
@@ -290,9 +290,9 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'name',
+    id: 'clientName',
     numeric: false,
-    disablePadding: true,
+    disablePadding: false,
     label: 'Name',
   },
   {
@@ -310,7 +310,7 @@ const headCells = [
   {
     id: 'skypeid',
     numeric: true,
-    disablePadding: false,
+    disablePadding: true,
     label: 'Skype ID',
   },
   { id: 'email', numeric: false, disablePadding: false, label: 'Email' },
@@ -346,7 +346,7 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align="center"
+            align="left"
             //align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
@@ -412,7 +412,7 @@ const EnhancedTableToolbar = (props) => {
     <Toolbar
       variant="dense"
       style={{
-        backgroundColor: '#004AA5',
+        backgroundColor: '#DCDCDC',
         color: '#fff',
         padding: '0px',
         width: '100%',
@@ -431,14 +431,26 @@ const EnhancedTableToolbar = (props) => {
           {numSelected} selected
         </Typography>
       ) : (
-        <Typography
-          className={classes.title}
-          variant="h6"
-          id="tableTitle"
-          component="div"
+        <Typography 
+        style={{flex:"1 1 100%"}}
         >
-          Clients List
-        </Typography>
+        <Button
+        size="large"
+        style={{
+          textTransform: 'none',
+          backgroundColor: '#2196F3',
+          color: '#fff',
+          marginLeft: 15,
+          width: 140,
+          fontWeight: 700,
+          paddingTop: '5px',
+          paddingBottom: '5px',
+        }}
+        variant="contained"
+        >
+        Clients List
+        </Button> 
+        </Typography>                 
       )}
 
       {numSelected > 0 ? (
@@ -450,10 +462,10 @@ const EnhancedTableToolbar = (props) => {
       ) : (
         <Tooltip title="Filter list">
           <IconButton aria-label="filter list">
-            <SearchIcon style={{ margin: '8px', color: '#fff' }} />
-            <GetAppIcon style={{ margin: '8px', color: '#fff' }} />
-            <PrintIcon style={{ margin: '8px', color: '#fff' }} />
-            <DeleteSweepIcon style={{ margin: '8px', color: '#fff' }} />
+            <SearchIcon style={{ margin: '8px', color: '#808080' }} />
+            <GetAppIcon style={{ margin: '8px', color: '#808080' }} />
+            <PrintIcon style={{ margin: '8px', color: '#808080' }} />
+            <DeleteSweepIcon style={{ margin: '8px', color: '#808080' }} />
           </IconButton>
         </Tooltip>
       )}
@@ -611,34 +623,32 @@ export default function Clienttable() {
                           />
                         </StyledTableCell>
                         <StyledTableCell
+                        align="left"
                           component="th"
                           id={labelId}
                           scope="row"
+                          // style={{marginLeft:"5px"}}
                         >
                           {row.clientName}
                         </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {row.routeName}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {row.destination}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {row.destinationCode}
+                        <StyledTableCell align="left">
+                          {row.companyName}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.rate}
+                          {row.country}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.acd}
+                          {row.skypeId}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.asr}
+                          {row.email}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.date}
+                          {row.mobileNumber}
                         </StyledTableCell>
-                        <StyledTableCell align="left">
+                        <StyledTableCell align="left"
+                        style={{paddingRight:5}}
+                        >
                           {row.action}
                         </StyledTableCell>
                       </StyledTableRow>

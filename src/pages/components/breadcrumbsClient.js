@@ -34,7 +34,7 @@ const BreadcrumbsClient = () => {
         component="div"
         style={{ color: 'lightgrey' }}
       >
-        CLient List
+        Client List
       </Typography>
     </>
   );
