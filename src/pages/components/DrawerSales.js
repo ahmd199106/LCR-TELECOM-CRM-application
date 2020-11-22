@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const MainDrawer = (props) => {
+const DrawerSales = (props) => {
     const classes = useStyles();
    
     
@@ -153,6 +153,7 @@ return (
         <div className={classes.drawerContainer} >
      
           <List component="nav" aria-label="Navigation" style={{ height:'100%'}} >
+            <Link to="/salesdashboard">
             <ListItem
             alignItems="center"
             style={{backgroundColor:(selectedIndex === 0) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF' }}
@@ -165,7 +166,8 @@ return (
               </ListItemIcon>
               <ListItemText primary="Dashboard" style={{color:'white'}}/>
             </ListItem>
-            <Link to="/purchaselist">
+            </Link>
+            <Link to="/saleslist">
             <ListItem
             style={{backgroundColor:(selectedIndex === 1) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -175,10 +177,10 @@ return (
               <ListItemIcon>
                 <img src={purchaseIcon} style={{marginTop: 5}} alt="Purchase Icon" />
               </ListItemIcon>
-              <ListItemText primary="Purchases" style={{color:'white'}}/>
+              <ListItemText primary="Sales" style={{color:'white'}}/>
             </ListItem>
             </Link>
-            <Link to="/clientlist">
+            <Link to="/salesclientlist">
           <ListItem
           style={{backgroundColor:(selectedIndex === 2) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -191,6 +193,7 @@ return (
               <ListItemText primary="Clients" style={{color:'white'}}/>
             </ListItem>
             </Link>
+            <Link to="/salesroutelist">
             <ListItem
             style={{backgroundColor:(selectedIndex === 3) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -202,6 +205,8 @@ return (
               </ListItemIcon>
               <ListItemText primary="Route Offers" style={{color:'white'}}/>
             </ListItem>
+            </Link>
+            <Link to="/salestargetlist">
             <ListItem
             style={{backgroundColor:(selectedIndex === 4) ? 'rgba(16, 156, 241, 0.44)' : '#005FAF'}}
               button
@@ -213,6 +218,7 @@ return (
               </ListItemIcon>
               <ListItemText primary="Target" style={{color:'white'}}/>
             </ListItem>
+            </Link>
             <div style={{ height:'100%',  }}>
               <div style={{ position:'absolute', bottom:0, width:'100%',display: 'flex',alignItems:'center'}}>
                 <ListItem
@@ -236,4 +242,4 @@ return (
 )
 }
 
-export default MainDrawer;
+export default DrawerSales;

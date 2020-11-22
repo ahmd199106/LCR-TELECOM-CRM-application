@@ -25,7 +25,7 @@ const BreadcrumbsClient = () => {
         style={{
           marginRight: '30px',
           marginLeft: '5px',
-          marginBottom: '15px',
+          marginBottom: '0px',
         }}
       />
       <Typography

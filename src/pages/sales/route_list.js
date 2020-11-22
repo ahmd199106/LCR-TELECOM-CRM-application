@@ -7,15 +7,13 @@ import {
   Button,
   List,
 } from '@material-ui/core';
-import BreadcrumbsClient from '../pages/components/breadcrumbsClient';
+import BreadcrumbsSalesRoute from '../components/breadcrumbsSalesRoute';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import { Paper, Typography } from '@material-ui/core';
-import MainDrawer from '../pages/components/MainDrawer';
-
-import { bootStrapButton, someStyles } from './assets/styles/purchase_list';
-import Clientlist_Table from './components/tables/client_list';
-
+import { bootStrapButton, someStyles } from '../assets/styles/purchase_list';
+import Routelist_Table from '../components/tables/route_list';
+import DrawerSales from '../components/DrawerSales';
 
 
 const BootstrapButton = withStyles({
@@ -23,14 +21,12 @@ const BootstrapButton = withStyles({
 })(Button);
 
 const useStyles = makeStyles((theme) => someStyles(theme));
-
-
-export default function Client_List () {
+export default function Route_List () {
   const classes = useStyles();
 
   return (
       <>
-        <MainDrawer />
+        <DrawerSales />
         <>
         <Paper
         style={{
@@ -46,7 +42,7 @@ export default function Client_List () {
         <Toolbar className={classes.mainToolbar}>
           <Grid container style={{ width: '100%' }}>
             <Grid container item xs={6} direction="row">
-              <BreadcrumbsClient />
+              <BreadcrumbsSalesRoute />
             </Grid>
             <Grid
               container
@@ -56,20 +52,20 @@ export default function Client_List () {
               justify="flex-start"
             >
               <Grid item xs={4} align="right">
-                <Link to="/createclient">
+                <Link to="/createsalesroute">
                   <BootstrapButton
                     variant="contained"
                     color="primary"
                     size="small"
                     startIcon={<AddIcon />}
                   >
-                    Add New Client
+                    Add New Route Offers
                   </BootstrapButton>
                 </Link>
               </Grid>
             </Grid>
 
-            <Clientlist_Table />
+            <Routelist_Table />
           </Grid>
         </Toolbar>
         </Paper>

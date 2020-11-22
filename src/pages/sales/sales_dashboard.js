@@ -1,11 +1,11 @@
 import React from 'react';
-import MainDrawer from '../pages/components/MainDrawer';
+import DrawerSales from '../components/DrawerSales';
 import { Link } from 'react-router-dom';
 import { Paper, Typography, Grid } from '@material-ui/core';
-import Dashboard_card from './components/cards/dashboard_cout';
-import ChartStudents from './components/charts/ChartStudents';
-import ChartDeals from './components/charts/ChartDeals';
-import ChartTasks from './components/charts/ChartTasks';
+import Dashboard_card from '../components/cards/dashboard_cout';
+import ChartStudents from '../components/charts/ChartStudents';
+import ChartDeals from '../components/charts/ChartDeals';
+import ChartTasks from '../components/charts/ChartTasks';
 
 // import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 // import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
@@ -13,10 +13,10 @@ import ChartTasks from './components/charts/ChartTasks';
 //   const UpwardIcon = () => { return (<ArrowUpwardIcon size="small" />) };
 // const DownwardIcon = () => <ArrowDownwardIcon size="small" style={{color: 'red'}}/>;
 
-const Purchase_dashboard = () => {
+const Sales_dashboard = () => {
   return (
     <>
-      <MainDrawer />
+      <DrawerSales />
       
     <>
       <Paper
@@ -33,7 +33,7 @@ const Purchase_dashboard = () => {
         <Grid xs={12} container justify="space-between">
           <Dashboard_card
             color="#6B54C9"
-            name="Purchase"
+            name="Sales"
             value="500000"
             percentage="+25"
           />
@@ -56,9 +56,6 @@ const Purchase_dashboard = () => {
             percentage="-30"
           />
         </Grid>
-        {/* <Link style={{ color:"black"}} to="/purchaselist">
-           <h1>button</h1>
-           </Link> */}
           <Grid container spacing={1}
           style={{
             width: "80%",
@@ -110,4 +107,4 @@ const Purchase_dashboard = () => {
   );
 };
 
-export default Purchase_dashboard;
+export default Sales_dashboard;

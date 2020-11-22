@@ -5,7 +5,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-import trendingFlat from './assets/images/trending_flat_24px_rounded.svg';
+import trendingFlat from '../assets/images/trending_flat_24px_rounded.svg';
 import { Link } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -18,7 +18,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import PrintIcon from '@material-ui/icons/Print';
-import MainDrawer from '../pages/components/MainDrawer';
+import DrawerSales from '../components/DrawerSales';
 
 
 function createData(parameter, value) {
@@ -88,12 +88,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PurchaseDetails() {
+export default function SalesTarget_Details() {
   const classes = useStyles();
 
   return (
     <>
-       <MainDrawer />
+       <DrawerSales />
         <>
         <Paper
         style={{
@@ -117,7 +117,7 @@ export default function PurchaseDetails() {
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
           <Typography className={classes.stepper} variant="h6" component="div">
-            Purchase List
+            Target  List
           </Typography>
           <img
             alt="trending flat"
@@ -125,21 +125,13 @@ export default function PurchaseDetails() {
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
           <Typography className={classes.stepper} variant="h6" component="div">
-            Add New Purchase
+           Target  Details
           </Typography>
           <img
             alt="trending flat"
             src={trendingFlat}
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
-          <Typography
-            className={classes.stepper}
-            variant="h6"
-            component="div"
-            style={{ color: 'lightgrey' }}
-          >
-            Purchase Details
-          </Typography>
         </Toolbar>
       </div>
       <div className={classes.root}>
@@ -166,7 +158,7 @@ export default function PurchaseDetails() {
                   <Typography 
                   style={{flex:"1 1 100%"}}
                   >
-                    <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Link to="/salestargetlist" style={{ textDecoration: 'none' }}>
                       <Button
                         style={{
                           textTransform: 'none',
@@ -175,7 +167,7 @@ export default function PurchaseDetails() {
                         }}
                         variant="contained"
                       >
-                        Purchase Details
+                        Target Details
                       </Button>
                     </Link>
                   </Typography>

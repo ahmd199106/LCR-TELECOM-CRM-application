@@ -447,7 +447,7 @@ const EnhancedTableToolbar = (props) => {
         backgroundColor: '#DCDCDC',
         color: '#fff',
         padding: '0px',
-        width: '100%',
+        //width: '100%',
       }}
       className={clsx(classes.root, {
         [classes.highlight]: numSelected > 0,
@@ -480,9 +480,9 @@ const EnhancedTableToolbar = (props) => {
         }}
         variant="contained"
         >
-        Purchase List
+        Route Offers List
         </Button> 
-        </Typography> 
+        </Typography>         
       )}
 
       {numSelected > 0 ? (
@@ -553,7 +553,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Purchasetable() {
+export default function Routelist_table() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');

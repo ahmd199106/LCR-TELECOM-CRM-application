@@ -5,7 +5,7 @@ import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-import trendingFlat from './assets/images/trending_flat_24px_rounded.svg';
+import trendingFlat from '../assets/images/trending_flat_24px_rounded.svg';
 import { Link } from 'react-router-dom';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -18,7 +18,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import GetAppIcon from '@material-ui/icons/GetApp';
 import PrintIcon from '@material-ui/icons/Print';
-import MainDrawer from '../pages/components/MainDrawer';
+import DrawerPurchase from '../components/DrawerPurchase';
 
 
 function createData(parameter, value) {
@@ -26,12 +26,14 @@ function createData(parameter, value) {
 }
 
 const rows = [
-  createData('Name', 'Thomas'),
-  createData('Company Name', 'Space'),
-  createData('Country', 'US'),
-  createData('Skype ID', 'thomas254'),
-  createData('E-mail', 'thomas@space.com'),
-  createData('Mobile Number', '+1(765)5391'),
+  createData('Client Name', 'Celltech'),
+  createData('Route Name', 'PTD'),
+  createData('Destination', 'India'),
+  createData('DestinationCode', '84'),
+  createData('Rate', '28'),
+  createData('ACD', '32'),
+  createData('ASR', '28'),
+  createData('Date', '14/10/2018'),
 ];
 
 const StyledTableCell = withStyles((theme) => ({
@@ -44,7 +46,7 @@ const StyledTableCell = withStyles((theme) => ({
   body: {
     fontSize: 14,
     lineHeight: '0.1',
-    paddingRight: '320px',
+    paddingRight: '350px',
     paddingLeft: '35px',
   },
 }))(TableCell);
@@ -86,12 +88,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ClientDetails() {
+export default function Target_Details() {
   const classes = useStyles();
 
   return (
     <>
-       <MainDrawer />
+       <DrawerPurchase />
         <>
         <Paper
         style={{
@@ -115,7 +117,7 @@ export default function ClientDetails() {
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
           <Typography className={classes.stepper} variant="h6" component="div">
-            Client List
+            Target  List
           </Typography>
           <img
             alt="trending flat"
@@ -123,33 +125,25 @@ export default function ClientDetails() {
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
           <Typography className={classes.stepper} variant="h6" component="div">
-            Add New Client
+           Target  Details
           </Typography>
           <img
             alt="trending flat"
             src={trendingFlat}
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
-          <Typography
-            className={classes.stepper}
-            variant="h6"
-            component="div"
-            style={{ color: 'lightgrey' }}
-          >
-            Client Details
-          </Typography>
         </Toolbar>
       </div>
       <div className={classes.root}>
         <Paper className={classes.paper}>
-          <TableContainer style={{ height: '280px' }}>
+          <TableContainer style={{ height: '340px' }}>
             <Table
               className={classes.table}
               //aria-labelledby="tableTitle"
               size="large"
               aria-label="enhanced table"
             >
-              <TableHead style={{ display: 'flex',width:"205%" }}>
+              <TableHead style={{ display: 'flex',width:"192%" }}>
                 {/* <Toolbar style={{backgroundColor:'#DCDCDC',color: '#fff',marginBottom:"10px",width:"65.5%",display: 'flex',}} ></Toolbar> */}
                 <Toolbar
                   style={{
@@ -164,7 +158,7 @@ export default function ClientDetails() {
                   <Typography 
                   style={{flex:"1 1 100%"}}
                   >
-                    <Link to="/" style={{ textDecoration: 'none' }}>
+                    <Link to="/targetlist" style={{ textDecoration: 'none' }}>
                       <Button
                         style={{
                           textTransform: 'none',
@@ -173,7 +167,7 @@ export default function ClientDetails() {
                         }}
                         variant="contained"
                       >
-                        Client Details
+                        Target Details
                       </Button>
                     </Link>
                   </Typography>

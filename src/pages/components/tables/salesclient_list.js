@@ -77,64 +77,54 @@ const BootstrapButton = withStyles({
 
 function createData(
   clientName,
-  routeName,
-  destination,
-  destinationCode,
-  rate,
-  acd,
-  asr,
-  date,
+  companyName,
+  country,
+  skypeId,
+  email,
+  mobileNumber,
   action
 ) {
   return {
     clientName,
-    routeName,
-    destination,
-    destinationCode,
-    rate,
-    acd,
-    asr,
-    date,
+    companyName,
+    country,
+    skypeId,
+    email,
+    mobileNumber,
     action,
   };
 }
 
 const rows = [
   createData(
-    'Airtel',
-    'CNN',
-    'India',
-    82,
-    0.125,
-    6,
-    '55%',
-    '28/10/2020',
+    'Thomas',
+    'Space',
+    'US',
+    'thomas254',
+    'thomas@pace.com',
+    '+(765)5391',
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
   ),
   createData(
-    'Etisalat',
-    'CNN',
-    'India',
-    82,
-    0.125,
-    6,
-    '55%',
-    '28/10/2020',
+    'George Sebastian',
+    'Indiatoday',
+    'IND',
+    'georgekl746',
+    'george.sebastian@gmail.com',
+    '+(765)5391',
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
   ),
   createData(
-    'Pak Tele',
-    'CNN',
-    'India',
+    'Abraham',
+    'LondonTimes',
+    'UK',
     82,
     0.125,
     6,
-    '55%',
-    '28/10/2020',
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -146,8 +136,6 @@ const rows = [
     82,
     0.125,
     6,
-    '55%',
-    '28/10/2020',
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -159,8 +147,6 @@ const rows = [
     82,
     0.125,
     6,
-    '55%',
-    '28/10/2020',
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -172,8 +158,6 @@ const rows = [
     87,
     6.5,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -185,8 +169,6 @@ const rows = [
     37,
     4.3,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -198,8 +180,6 @@ const rows = [
     94,
     0.0,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -211,8 +191,6 @@ const rows = [
     65,
     7.0,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -224,8 +202,6 @@ const rows = [
     98,
     0.0,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -237,8 +213,6 @@ const rows = [
     81,
     2.0,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -250,8 +224,6 @@ const rows = [
     9,
     37.0,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -263,8 +235,6 @@ const rows = [
     63,
     4.0,
     124,
-    124,
-    82,
     <IconButton>
       <SearchIcon /> <CreateIcon />
     </IconButton>
@@ -276,11 +246,11 @@ const StyledTableCell = withStyles((theme) => ({
     //backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
     fontSize: 12,
-    lineHeight: '0.1',
+    lineHeight: 0.1,
   },
   body: {
     fontSize: 12,
-    lineHeight: '0.1',
+    lineHeight: 0.1,
   },
 }))(TableCell);
 
@@ -322,31 +292,29 @@ const headCells = [
   {
     id: 'clientName',
     numeric: false,
-    disablePadding: true,
-    label: 'Client Name',
+    disablePadding: false,
+    label: 'Name',
   },
   {
-    id: 'routeName',
+    id: 'companyname',
     numeric: true,
     disablePadding: false,
-    label: 'Route Name',
+    label: 'Company Name',
   },
   {
-    id: 'destination',
+    id: 'country',
     numeric: true,
     disablePadding: false,
     label: 'Destination',
   },
   {
-    id: 'destinationCode',
+    id: 'skypeid',
     numeric: true,
-    disablePadding: false,
-    label: 'Destination Code',
+    disablePadding: true,
+    label: 'Skype ID',
   },
-  { id: 'rate', numeric: false, disablePadding: false, label: 'Rate' },
-  { id: 'acd', numeric: false, disablePadding: true, label: 'ACD' },
-  { id: 'asr', numeric: true, disablePadding: true, label: 'ASR' },
-  { id: 'date', numeric: true, disablePadding: true, label: 'Date' },
+  { id: 'email', numeric: false, disablePadding: false, label: 'Email' },
+  { id: 'mobilenumber', numeric: false, disablePadding: true, label: 'Mobile Number' },
   { id: 'action', numeric: true, disablePadding: true, label: 'Action' },
 ];
 
@@ -378,7 +346,7 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align="center"
+            align="left"
             //align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
@@ -473,16 +441,16 @@ const EnhancedTableToolbar = (props) => {
           backgroundColor: '#2196F3',
           color: '#fff',
           marginLeft: 15,
-          //width: 140,
+          width: 140,
           fontWeight: 700,
           paddingTop: '5px',
           paddingBottom: '5px',
         }}
         variant="contained"
         >
-        Purchase List
+        Clients List
         </Button> 
-        </Typography> 
+        </Typography>                 
       )}
 
       {numSelected > 0 ? (
@@ -494,10 +462,10 @@ const EnhancedTableToolbar = (props) => {
       ) : (
         <Tooltip title="Filter list">
           <IconButton aria-label="filter list">
-            <SearchIcon style={{ margin: '8px', color: '#fff' }} />
-            <GetAppIcon style={{ margin: '8px', color: '#fff' }} />
-            <PrintIcon style={{ margin: '8px', color: '#fff' }} />
-            <DeleteSweepIcon style={{ margin: '8px', color: '#fff' }} />
+            <SearchIcon style={{ margin: '8px', color: '#808080' }} />
+            <GetAppIcon style={{ margin: '8px', color: '#808080' }} />
+            <PrintIcon style={{ margin: '8px', color: '#808080' }} />
+            <DeleteSweepIcon style={{ margin: '8px', color: '#808080' }} />
           </IconButton>
         </Tooltip>
       )}
@@ -553,7 +521,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Purchasetable() {
+export default function SalesClienttable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -655,34 +623,32 @@ export default function Purchasetable() {
                           />
                         </StyledTableCell>
                         <StyledTableCell
+                        align="left"
                           component="th"
                           id={labelId}
                           scope="row"
+                          // style={{marginLeft:"5px"}}
                         >
                           {row.clientName}
                         </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {row.routeName}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {row.destination}
-                        </StyledTableCell>
-                        <StyledTableCell align="center">
-                          {row.destinationCode}
+                        <StyledTableCell align="left">
+                          {row.companyName}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.rate}
+                          {row.country}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.acd}
+                          {row.skypeId}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.asr}
+                          {row.email}
                         </StyledTableCell>
                         <StyledTableCell align="left">
-                          {row.date}
+                          {row.mobileNumber}
                         </StyledTableCell>
-                        <StyledTableCell align="left">
+                        <StyledTableCell align="left"
+                        style={{paddingRight:5}}
+                        >
                           {row.action}
                         </StyledTableCell>
                       </StyledTableRow>

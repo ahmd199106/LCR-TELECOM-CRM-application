@@ -480,7 +480,7 @@ const EnhancedTableToolbar = (props) => {
         }}
         variant="contained"
         >
-        Purchase List
+        Sales List
         </Button> 
         </Typography> 
       )}
@@ -553,7 +553,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Purchasetable() {
+export default function Salestable() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');

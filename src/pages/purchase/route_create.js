@@ -7,9 +7,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-import trendingFlat from './assets/images/trending_flat_24px_rounded.svg';
+import trendingFlat from '../assets/images/trending_flat_24px_rounded.svg';
 import { Link } from 'react-router-dom';
-import MainDrawer from '../pages/components/MainDrawer';
+import DrawerPurchase from '../components/DrawerPurchase';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Create_Client() {
+export default function Create_Route() {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm();
   console.log(register);
@@ -72,7 +72,7 @@ export default function Create_Client() {
 
   return (
     <>
-      <MainDrawer />
+      <DrawerPurchase />
         <>
         <Paper
         style={{
@@ -96,7 +96,7 @@ export default function Create_Client() {
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
           <Typography className={classes.stepper} variant="h6" component="div">
-            Purchase List
+            Route Offer List
           </Typography>
           <img
             alt="trending flat"
@@ -109,7 +109,7 @@ export default function Create_Client() {
             component="div"
             style={{ color: 'lightgrey' }}
           >
-            Add New Client
+             Route Offer Details
           </Typography>
         </Toolbar>
       </div>
@@ -137,14 +137,14 @@ export default function Create_Client() {
                 backgroundColor: '#2196F3',
                 color: '#fff',
                 marginLeft: 0,
-                width: 140,
+                //width: 140,
                 fontWeight: 700,
                 paddingTop: '5px',
                 paddingBottom: '5px',
                 }}
                 variant="contained"
                 >
-              Add New Client
+              Add New Route Offer
               </Button>
             </Typography>
           </Toolbar>
@@ -166,7 +166,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="First Name"
+                label="Client Name"
                 name="clientName"
                 inputRef={register}
                 variant="filled"
@@ -174,7 +174,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="Second Name"
+                label="Route Name"
                 name="routeName"
                 inputRef={register}
                 variant="filled"
@@ -182,7 +182,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="Last Name"
+                label="Destination"
                 name="destination"
                 inputRef={register}
                 variant="filled"
@@ -190,7 +190,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="Company Name"
+                label="Destination Code"
                 name="destinationCode"
                 inputRef={register}
                 variant="filled"
@@ -198,7 +198,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="Country "
+                label="Rate"
                 name="rate"
                 inputRef={register}
                 variant="filled"
@@ -206,7 +206,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="Skype ID"
+                label="ACD"
                 name="acd"
                 inputRef={register}
                 variant="filled"
@@ -214,7 +214,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="E-mail"
+                label="ASR"
                 name="asr"
                 inputRef={register}
                 variant="filled"
@@ -222,7 +222,7 @@ export default function Create_Client() {
               <TextField
                 size="small"
                 type="text"
-                label="Phone Number"
+                label="Date"
                 name="date"
                 inputRef={register}
                 variant="filled"
@@ -269,7 +269,7 @@ export default function Create_Client() {
               >
                 Cancel
               </Button>
-              <Link to="/clientdetails">
+              <Link to="/routedetails">
                 <Button
                   variant="contained"
                   color="primary"

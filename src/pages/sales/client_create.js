@@ -7,9 +7,9 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
-import trendingFlat from './assets/images/trending_flat_24px_rounded.svg';
+import trendingFlat from '../assets/images/trending_flat_24px_rounded.svg';
 import { Link } from 'react-router-dom';
-import MainDrawer from '../pages/components/MainDrawer';
+import DrawerSales from '../components/DrawerSales';
 import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles((theme) => ({
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '22px',
     marginBottom: '5px',
     marginTop: '10px',
-    backgroundColor: '#004AA5',
+    backgroundColor: '#2196F3',
   },
   mainToolbar: {
     marginTop: theme.spacing(2),
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Form() {
+export default function Create_SalesClient() {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm();
   console.log(register);
@@ -72,7 +72,7 @@ export default function Form() {
 
   return (
     <>
-      <MainDrawer />
+      <DrawerSales />
         <>
         <Paper
         style={{
@@ -96,7 +96,7 @@ export default function Form() {
             style={{ marginRight: '30px', marginLeft: '5px' }}
           />
           <Typography className={classes.stepper} variant="h6" component="div">
-            Purchase List
+            Client List
           </Typography>
           <img
             alt="trending flat"
@@ -109,7 +109,7 @@ export default function Form() {
             component="div"
             style={{ color: 'lightgrey' }}
           >
-            Add New Purchase
+            Add New Client
           </Typography>
         </Toolbar>
       </div>
@@ -118,7 +118,7 @@ export default function Form() {
           <Toolbar
             variant="dense"
             style={{
-              backgroundColor: '#004AA5',
+              backgroundColor: '#DCDCDC',
               color: '#fff',
               padding: '0px',
               width: '100%',
@@ -130,7 +130,22 @@ export default function Form() {
               id="formTitle"
               component="div"
             >
-              Add New Purchase
+             <Button
+                size="small"
+                style={{
+                textTransform: 'none',
+                backgroundColor: '#2196F3',
+                color: '#fff',
+                marginLeft: 0,
+                width: 140,
+                fontWeight: 700,
+                paddingTop: '5px',
+                paddingBottom: '5px',
+                }}
+                variant="contained"
+                >
+              Add New Client
+              </Button>
             </Typography>
           </Toolbar>
 
@@ -151,7 +166,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="Client Name"
+                label="First Name"
                 name="clientName"
                 inputRef={register}
                 variant="filled"
@@ -159,7 +174,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="Route Name"
+                label="Second Name"
                 name="routeName"
                 inputRef={register}
                 variant="filled"
@@ -167,7 +182,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="Destination"
+                label="Last Name"
                 name="destination"
                 inputRef={register}
                 variant="filled"
@@ -175,7 +190,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="Destination Code"
+                label="Company Name"
                 name="destinationCode"
                 inputRef={register}
                 variant="filled"
@@ -183,7 +198,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="Rate "
+                label="Country "
                 name="rate"
                 inputRef={register}
                 variant="filled"
@@ -191,7 +206,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="ACD"
+                label="Skype ID"
                 name="acd"
                 inputRef={register}
                 variant="filled"
@@ -199,7 +214,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="ASR"
+                label="E-mail"
                 name="asr"
                 inputRef={register}
                 variant="filled"
@@ -207,7 +222,7 @@ export default function Form() {
               <TextField
                 size="small"
                 type="text"
-                label="Date"
+                label="Phone Number"
                 name="date"
                 inputRef={register}
                 variant="filled"
@@ -254,7 +269,7 @@ export default function Form() {
               >
                 Cancel
               </Button>
-              <Link to="/purchasedetails">
+              <Link to="/salesclientdetails">
                 <Button
                   variant="contained"
                   color="primary"

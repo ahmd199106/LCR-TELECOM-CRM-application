@@ -473,16 +473,16 @@ const EnhancedTableToolbar = (props) => {
           backgroundColor: '#2196F3',
           color: '#fff',
           marginLeft: 15,
-          //width: 140,
+          width: 140,
           fontWeight: 700,
           paddingTop: '5px',
           paddingBottom: '5px',
         }}
         variant="contained"
         >
-        Purchase List
+        Target List
         </Button> 
-        </Typography> 
+        </Typography>       
       )}
 
       {numSelected > 0 ? (
@@ -553,7 +553,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Purchasetable() {
+export default function Targetlist_Table() {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');

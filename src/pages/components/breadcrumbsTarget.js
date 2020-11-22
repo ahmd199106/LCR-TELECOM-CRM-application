@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import trendingFlat from '../assets/images/trending_flat_24px_rounded.svg';
 
-const Breadcrumbs = () => {
+const BreadcrumbTarget = () => {
   const classes = {
     stepperdisabled: {
       fontSize: 18,
@@ -34,10 +34,10 @@ const Breadcrumbs = () => {
         component="div"
         style={{ color: 'lightgrey' }}
       >
-        Purchase List
+        Target List
       </Typography>
     </>
   );
 };
 
-export default Breadcrumbs;
+export default BreadcrumbTarget;
