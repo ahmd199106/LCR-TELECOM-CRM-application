@@ -7,14 +7,13 @@ import {
   Button,
   List,
 } from '@material-ui/core';
-import Breadcrumb from '../components/breadcrumbs';
+import BreadcrumbsSalesRoute from '../components/breadcrumbsSalesRoute';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import { Paper, Typography } from '@material-ui/core';
-
 import { bootStrapButton, someStyles } from '../assets/styles/purchase_list';
-import Purchaselist_Table from '../components/tables/purchase_list';
-import DrawerPurchase from '../components/DrawerPurchase';
+import Routelist_Table from '../components/tables/route_list';
+import DrawerSales from '../components/DrawerSales';
 
 
 const BootstrapButton = withStyles({
@@ -22,15 +21,12 @@ const BootstrapButton = withStyles({
 })(Button);
 
 const useStyles = makeStyles((theme) => someStyles(theme));
-
-
-
-export default function Purchase_List () {
+export default function Route_List () {
   const classes = useStyles();
 
   return (
       <>
-        <DrawerPurchase />
+        <DrawerSales />
         <>
         <Paper
         style={{
@@ -46,7 +42,7 @@ export default function Purchase_List () {
         <Toolbar className={classes.mainToolbar}>
           <Grid container style={{ width: '100%' }}>
             <Grid container item xs={6} direction="row">
-              <Breadcrumb />
+              <BreadcrumbsSalesRoute />
             </Grid>
             <Grid
               container
@@ -56,20 +52,20 @@ export default function Purchase_List () {
               justify="flex-start"
             >
               <Grid item xs={4} align="right">
-                <Link to="/createpurchase">
+                <Link to="/createsalesroute">
                   <BootstrapButton
                     variant="contained"
                     color="primary"
                     size="small"
                     startIcon={<AddIcon />}
                   >
-                    Add New Purchase
+                    Add New Route Offers
                   </BootstrapButton>
                 </Link>
               </Grid>
             </Grid>
 
-            <Purchaselist_Table />
+            <Routelist_Table />
           </Grid>
         </Toolbar>
         </Paper>

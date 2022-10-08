@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  lcrtel:
+    container_name: lcr_tel
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - 3000:3000
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    networks:
+      - react-app
+networks:
+  react-app:
+    driver: bridge

@@ -7,14 +7,15 @@ import {
   Button,
   List,
 } from '@material-ui/core';
-import Breadcrumb from '../components/breadcrumbs';
+import BreadcrumbsClient from '../components/breadcrumbsClient';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import { Paper, Typography } from '@material-ui/core';
+import DrawerPurchase from '../components/DrawerPurchase';
 
 import { bootStrapButton, someStyles } from '../assets/styles/purchase_list';
-import Purchaselist_Table from '../components/tables/purchase_list';
-import DrawerPurchase from '../components/DrawerPurchase';
+import Clientlist_Table from '../components/tables/client_list';
+
 
 
 const BootstrapButton = withStyles({
@@ -24,8 +25,7 @@ const BootstrapButton = withStyles({
 const useStyles = makeStyles((theme) => someStyles(theme));
 
 
-
-export default function Purchase_List () {
+export default function Client_List () {
   const classes = useStyles();
 
   return (
@@ -46,7 +46,7 @@ export default function Purchase_List () {
         <Toolbar className={classes.mainToolbar}>
           <Grid container style={{ width: '100%' }}>
             <Grid container item xs={6} direction="row">
-              <Breadcrumb />
+              <BreadcrumbsClient />
             </Grid>
             <Grid
               container
@@ -56,20 +56,20 @@ export default function Purchase_List () {
               justify="flex-start"
             >
               <Grid item xs={4} align="right">
-                <Link to="/createpurchase">
+                <Link to="/createclient">
                   <BootstrapButton
                     variant="contained"
                     color="primary"
                     size="small"
                     startIcon={<AddIcon />}
                   >
-                    Add New Purchase
+                    Add New Client
                   </BootstrapButton>
                 </Link>
               </Grid>
             </Grid>
 
-            <Purchaselist_Table />
+            <Clientlist_Table />
           </Grid>
         </Toolbar>
         </Paper>
