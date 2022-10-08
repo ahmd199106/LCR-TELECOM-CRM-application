@@ -10,7 +10,7 @@ import {
 import Breadcrumb from '../components/breadcrumbs';
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
-import { Paper } from '@material-ui/core';
+import { Paper, Typography } from '@material-ui/core';
 
 import { bootStrapButton, someStyles } from '../assets/styles/purchase_list';
 import Purchaselist_Table from '../components/tables/purchase_list';
